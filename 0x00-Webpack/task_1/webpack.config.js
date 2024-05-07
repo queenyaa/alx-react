@@ -1,5 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -9,12 +8,5 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'public')
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Task 1 - Holberton Dashboard',
-      filename: 'index.html',
-      scriptLoading: 'defer'
-    })
-  ]
-};
+  }
+}
