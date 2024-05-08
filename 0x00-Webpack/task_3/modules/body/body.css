@@ -1,0 +1,11 @@
+button {
+    padding: 10px 20px;
+    background-color: rgb(114, 75, 27);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#count {
+    margin-top: 20px;
+}
