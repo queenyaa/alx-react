@@ -15,7 +15,10 @@ module.exports = {
     hints: false,
     maxEntrypointSize: 1000000,
   },
-  plugins: [ new HtmlWebpackPlugin(), new CleanWebpackPlugin() ],
+  plugins: [
+    new HtmlWebpackPlugin(),
+    new CleanWebpackPlugin()
+  ],
   optimization: {
     splitChunks: {
       chunks: 'all'
@@ -23,10 +26,8 @@ module.exports = {
   },
   devServer: {
     port: 8564,
-    open: true,
-    static: {
-      directory: path.resolve(__dirname, 'public')
-    }
+    compress: true,
+    contentBase: path.join(__dirname, './public'),
   },
   output: {
     filename: '[name].bundle.js',
