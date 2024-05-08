@@ -13,7 +13,7 @@ let count = 0;
 const updateCounter = _.debounce(() => {
   count++;
   $('#count').text(`${count} clicks on the button`);
-}, 1000);
+}, 500);
 
 // Event listener for button click
 $('#start-button').on('click', () => {
