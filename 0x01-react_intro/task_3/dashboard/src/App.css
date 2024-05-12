@@ -1,0 +1,38 @@
+.App-logo {
+  height: 30vmin;
+  pointer-events: none;
+  align-items: flex-start;
+}
+
+.App-header {
+  background-color: #fff;
+  min-height: 30vh;
+  display: flex;
+  align-items: flex-start;
+  font-size: calc(10px + 2vmin);
+  border-bottom: 2px solid red;
+}
+
+.App-header h1 {
+  color: red;
+  font-size: 30px;
+  margin-top: 100px;
+  font-weight: bold;
+}
+
+.App-body {
+  color: black;
+  min-height: 50vh;
+  margin-top: 40px;
+}
+
+#email, #password {
+  margin-right: 10px;
+}
+
+.App-footer {
+  margin-bottom: 0px;
+  border-top: 2px solid red;
+  text-align: center;
+  font-style: italic;
+}
