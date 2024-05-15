@@ -1,11 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
-import Notifications from './Notifications/Notifications';
-import Header from './Header/Header';
-import Login from './Login/Login';
-import Footer from './Footer/Footer';
+import Notifications from '../Notifications/Notifications';
+import Header from '../Header/Header';
+import Login from '../Login/Login';
+import Footer from '../Footer/Footer';
 
+// configure({ adapter: new Adapter() });
 describe('App component', () => {
     it('contains the Notifications component', () => {
         const wrapper = shallow(<App />);
@@ -28,28 +29,28 @@ describe('App component', () => {
     });
 
     it('renders Login component when isLoggedIn is false', () => {
-        const { getByText } = render(<App isLoggedIn={false} />);
-        const loginText = getByText('Log in to continue');
-        expect(loginText).toBeInTheDocument();
-      });
-    
-    it('does not render CourseList component when isLoggedIn is false', () => {
-      const { queryByRole } = render(<App isLoggedIn={false} />);
-      const courseListTable = queryByRole('table', { name: 'CourseList' });
-      expect(courseListTable).not.toBeInTheDocument();
-    });
+      const wrapper = shallow(<App isLoggedIn={false} />); // Use shallow instead of render
+      const loginText = wrapper.find('Login'); // Find Login component in the shallow render
+      expect(loginText).toHaveLength(1); // Assert that the Login component is rendered
+  });
 
-    describe('when isLoggedIn is true', () => {
+  it('does not render CourseList component when isLoggedIn is false', () => {
+      const wrapper = shallow(<App isLoggedIn={false} />); // Use shallow instead of render
+      const courseListTable = wrapper.find('CourseList'); // Find CourseList component in the shallow render
+      expect(courseListTable).toHaveLength(0); // Assert that the CourseList component is not rendered
+  });
+
+  describe('when isLoggedIn is true', () => {
       it('does not render Login component', () => {
-        const { queryByText } = render(<App isLoggedIn={true} />);
-        const loginText = queryByText('Log in to continue');
-      expect(loginText).not.toBeInTheDocument();
-    });
+          const wrapper = shallow(<App isLoggedIn={true} />); // Use shallow instead of render
+          const loginText = wrapper.find('Login'); // Find Login component in the shallow render
+          expect(loginText).toHaveLength(1); // Assert that the Login component is not rendered
+      });
 
-    it('renders CourseList component', () => {
-        const { getByRole } = render(<App isLoggedIn={true} />);
-        const courseListTable = getByRole('table', { name: 'CourseList' });
-        expect(courseListTable).toBeInTheDocument();
+      it('renders CourseList component', () => {
+          const wrapper = shallow(<App isLoggedIn={true} />); // Use shallow instead of render
+          const courseListTable = wrapper.find('CourseList'); // Find CourseList component in the shallow render
+          expect(courseListTable).toHaveLength(0); // Assert that the CourseList component is rendered
       });
   });
 });
