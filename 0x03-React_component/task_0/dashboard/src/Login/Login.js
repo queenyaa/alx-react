@@ -15,11 +15,11 @@ export default function Login() {
         <label htmlFor="email" onClick={handleClick} style={{ marginRight: '10px' }}>
           Email:
         </label>
-        <input type="email" id="email" />
+        <input type="email" id="email" name="email" autocomplete="off" />
         <label htmlFor="password" onClick={handleClick} style={{ marginRight: '10px' }}>
           Password:
         </label>
-        <input type="password" id="password" />
+        <input type="password" id="password" name="password" autocomplete="off" />
         <button>OK</button>
       </div>
     );
