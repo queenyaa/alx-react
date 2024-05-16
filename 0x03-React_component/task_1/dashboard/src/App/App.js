@@ -8,6 +8,7 @@ import Login from '../Login/Login';
 import NotificationItem from '../Notifications/NotificationItem';
 import CourseList from '../CourseList/CourseList';
 import PropTypes from 'prop-types';
+import { getLatestNotification } from '../utils/utils';
 
   // Sample course list
   const listCourses = [
@@ -19,7 +20,7 @@ import PropTypes from 'prop-types';
   const listNotifications = [
     { id: 1, html: { __html: '<u>New course available</u>' }, type: 'default', value: 'New course available' },
     { id: 2, html: { __html: '<u>New resume available</u>' }, type: 'urgent', value: 'New resume available' },
-    { id: 3, html: { __html: '<u>Urgent requirement - complete by EOD</u>' }, type: 'urgent', value: 'Urgent requirement - complete by EOD' }
+    { id: 3, html: { __html: '<u>Urgent requirement - complete by EOD</u>' }, type: 'urgent', html: {__html: getLatestNotification() } },
   ];
 class App extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class App extends Component {
   }
 
   render () {
-  const { isLoggedIn } = this.props;
+  const { isLoggedIn, logOut } = this.props;
 
     return (
       <>
@@ -53,7 +54,7 @@ class App extends Component {
           <NotificationItem />
           <Header />
           <div className="App-body">
-            <Login />
+            {!isLoggedIn ? <Login /> : <CourseList listCourses={listCourses} /> }
           </div>
           <Footer />
         </div>
@@ -64,11 +65,12 @@ class App extends Component {
 
 App.defaultProps = {
   isLoggedIn: false,
+  logOut: () => {},
 }
 
 App.propTypes = {
-  isLoggedIn: PropTypes.bool.isRequired,
-  logOut: PropTypes.func.isRequired,
+  isLoggedIn: PropTypes.bool,
+  logOut: PropTypes.func,
 };
 
 export default App;
