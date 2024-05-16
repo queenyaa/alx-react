@@ -69,13 +69,13 @@ describe('App component', () => {
       it('does not render Login component', () => {
           const wrapper = shallow(<App isLoggedIn={true} />); // Use shallow instead of render
           const loginText = wrapper.find('Login'); // Find Login component in the shallow render
-          expect(loginText).toHaveLength(1); // Assert that the Login component is not rendered
+          expect(loginText).toHaveLength(0); // Assert that the Login component is not rendered
       });
 
       it('renders CourseList component', () => {
           const wrapper = shallow(<App isLoggedIn={true} />); // Use shallow instead of render
           const courseListTable = wrapper.find('CourseList'); // Find CourseList component in the shallow render
-          expect(courseListTable).toHaveLength(0); // Assert that the CourseList component is rendered
+          expect(courseListTable).toHaveLength(1); // Assert that the CourseList component is rendered
       });
   });
 });
