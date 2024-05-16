@@ -58,3 +58,133 @@ In summary, Task 1 is essential for mastering React component lifecycle, event h
 
 ---
 
+### Task 2 : Handling Events
+---
+
+Task 2 involves adding functionality and tests to a notification system in a React application. Here's the importance of each part of Task 2:
+
+#### Part 1:
+
+1. **Converting Function Component to Class Component**:
+   - Understanding how to convert a functional component to a class component is essential for developers working with both types of components in React applications.
+   - It's crucial for developers to grasp the differences between functional and class components, including state management and lifecycle methods.
+
+2. **Adding a New Event Handler**:
+   - Introducing new event handlers to components allows developers to enhance interactivity and user experience in React applications.
+   - Understanding how to manage events and event handling in React components is fundamental for building interactive interfaces.
+
+3. **Passing Functions as Props**:
+   - Passing functions as props enables components to communicate and interact with each other in React applications.
+   - This practice is essential for building reusable and composable components that can be easily integrated into different parts of an application.
+
+4. **Testing the New Functionality**:
+   - Writing tests ensures that the newly added functionality behaves as expected and doesn't introduce regressions into the application.
+   - Testing is a critical aspect of the development process, helping maintain code quality, reliability, and correctness.
+
+#### Part 2:
+
+1. **Mocking Console Functions**:
+   - Mocking console functions in tests allows developers to verify that certain functions, such as `console.log`, are called with the correct arguments during component interactions.
+   - This practice ensures that the component's behavior, such as logging messages, is tested without affecting the actual console output.
+
+2. **Testing Component Interactions**:
+   - Testing interactions between components, such as invoking functions passed as props, ensures that components behave correctly in response to user actions or external events.
+   - This type of testing helps validate the integration and communication between different parts of the application.
+
+3. **Maintaining Test Coverage**:
+   - By adding tests for the new functionality, developers ensure comprehensive test coverage of the application.
+   - Comprehensive test coverage helps identify and prevent bugs, enhances code maintainability, and provides confidence in the application's behavior.
+
+4. **Ensuring Code Quality and Reliability**:
+   - Writing tests for new functionality and existing features contributes to the overall quality and reliability of the codebase.
+   - Tests act as a safety net, catching issues early in the development process and reducing the risk of introducing bugs or regressions.
+
+In summary, Task 2 is crucial for enhancing the functionality, reliability, and maintainability of the React application by introducing new features, testing them thoroughly, and ensuring robust communication between components.
+
+---
+
+### Task 3 : Reusable comments & specialization
+---
+
+Task 3, which involves creating a React component called `BodySection`, is important for several reasons:
+
+1. **Component Composition**: It demonstrates how to compose complex UIs in React by breaking them down into smaller, reusable components. `BodySection` serves as a building block that encapsulates a section of content with a title and children.
+
+2. **Containment Pattern**: The task illustrates the containment pattern in React, where a component can render its children components. `BodySection` doesn't know in advance what its children will be, allowing for flexible and dynamic rendering based on the content provided.
+
+3. **Props Handling**: It showcases how to handle props in React components. The `title` prop is used to customize the heading of each `BodySection`, making the component versatile and adaptable to different use cases.
+
+4. **Best Practices**: By following the task's requirements, developers learn and apply best practices for structuring React components. Encapsulating related functionality within a single component enhances code readability, maintainability, and reusability.
+
+5. **UI Consistency**: `BodySection` ensures consistency in the layout and styling of sections across the application. By standardizing the appearance of sections with a consistent structure, it improves the overall user experience and visual coherence.
+
+6. **Testability**: Well-defined components like `BodySection` are easier to test in isolation, promoting better test coverage and overall code quality. This is crucial for ensuring the reliability and robustness of React applications.
+
+In summary, Task 3 is significant as it reinforces fundamental React concepts, promotes code modularity and reusability, and contributes to building scalable and maintainable React applications.
+
+---
+
+### Task 4 : Specialization
+---
+
+Task 4 is important for several reasons:
+
+1. **Component Composition**: Similar to Task 3, Task 4 demonstrates the concept of component composition in React. By creating a new component `BodySectionWithMarginBottom` that wraps around the existing `BodySection` component, it showcases how to build more complex UI structures from simpler components.
+
+2. **Code Reusability**: By leveraging the existing `BodySection` component within `BodySectionWithMarginBottom`, developers can reuse functionality and UI elements across different parts of the application. This promotes code reusability, reduces duplication, and leads to a more maintainable codebase.
+
+3. **Styling Reusability**: The separation of concerns between component logic (in JavaScript) and component styling (in CSS) is maintained in Task 4. By defining styling for `bodySectionWithMargin` class in a separate CSS file, the styling can be easily reused across multiple components or modified without affecting the component logic.
+
+4. **Prop Handling**: Task 4 reinforces the concept of prop handling in React components. The `title` and `children` props are passed from `BodySectionWithMarginBottom` to `BodySection` using props spreading (`...`). Properly defining PropTypes ensures type safety and helps catch potential errors during development.
+
+5. **Component Modularity**: By encapsulating the margin styling within the `BodySectionWithMarginBottom` component, the styling logic remains encapsulated and modular. This promotes better maintainability and makes it easier to reason about the behavior of individual components.
+
+6. **Consistent UI Design**: By applying a consistent margin style across `BodySectionWithMarginBottom` components, UI consistency is maintained throughout the application. This contributes to a better user experience and improves the overall visual coherence of the application.
+
+In summary, Task 4 is important as it reinforces fundamental React principles such as component composition, code reusability, proper prop handling, and separation of concerns. It contributes to building scalable, maintainable, and consistent React applications.
+
+---
+
+### Task 5 : Use the new components
+---
+
+Task 5 is important for several reasons:
+
+1. **Component Composition**: Task 5 demonstrates the concept of component composition in React. By wrapping the `CourseList` and `Login` components with the newly created `BodySectionWithMarginBottom` component, it shows how smaller, reusable components can be composed to create more complex UI structures.
+
+2. **Enhanced Readability and Maintainability**: By encapsulating the margin styling within the `BodySectionWithMarginBottom` component, the code becomes more readable and maintainable. This separation of concerns ensures that styling logic is decoupled from the main application logic, making it easier to understand and modify in the future.
+
+3. **Consistent UI Design**: Task 5 promotes consistent UI design by applying consistent margin styling to specific sections of the application. By wrapping components with `BodySectionWithMarginBottom`, developers ensure that these sections have a uniform appearance, contributing to a better user experience.
+
+4. **Reusability**: The creation of `BodySectionWithMarginBottom` facilitates reusability of margin styling throughout the application. Instead of manually applying margin styles to individual components, developers can simply wrap them with `BodySectionWithMarginBottom` to achieve the desired layout, saving time and effort.
+
+5. **Adherence to Best Practices**: By following the requirements of Task 5, developers adhere to best practices in React development. This includes proper component composition, separation of concerns, and adherence to coding standards, resulting in a more robust and maintainable codebase.
+
+In summary, Task 5 is important as it reinforces fundamental React concepts, promotes code modularity and reusability, ensures consistent UI design, and enhances the overall readability and maintainability of the codebase.
+
+---
+
+### Task 6 : Test the new components
+---
+
+Task 6 is important for several reasons:
+
+1. **Test Coverage**: Adding tests ensures that the components behave as expected and helps catch regressions when making changes to the codebase. By testing the rendering and prop passing of the `BodySection` and `BodySectionWithMarginBottom` components, developers can have more confidence in the correctness of their code.
+
+2. **Component Reliability**: Tests provide assurance that the components render correctly and that props are passed down properly. This helps ensure that the components function as intended in different scenarios, contributing to the reliability and stability of the application.
+
+3. **Maintainability**: Testable code tends to be more maintainable. By having tests in place, developers can more easily refactor code, add new features, or make changes without introducing unintended side effects. This leads to a more maintainable codebase over time.
+
+4. **Documentation**: Tests serve as a form of documentation for how components should behave. They provide insights into the expected behavior of the components, which can be valuable for new developers joining the project or for existing developers working on unfamiliar parts of the codebase.
+
+5. **Error Detection**: Tests can help detect errors and bugs early in the development process. By running tests frequently, developers can catch issues before they propagate to other parts of the application, reducing the likelihood of introducing critical bugs in production.
+
+6. **Regression Prevention**: Writing tests helps prevent regressions by ensuring that existing functionality continues to work as expected when new changes are made. By running tests as part of the development process, developers can catch regressions early and address them before they reach production.
+
+In summary, Task 6 is important as it contributes to the overall quality, reliability, and maintainability of the codebase by ensuring that components render correctly, props are passed down properly, and potential issues are caught early in the development process.
+
+---
+
+### Task 7 : Creating WithLogging HOC
+---
+
