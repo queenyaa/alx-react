@@ -188,3 +188,40 @@ In summary, Task 6 is important as it contributes to the overall quality, reliab
 ### Task 7 : Creating WithLogging HOC
 ---
 
+1. **Logging**: Adding logging functionality to components helps developers debug and understand the lifecycle of components. By logging when a component is mounted and about to unmount, developers gain insights into the flow of the application and potential performance issues.
+
+2. **Centralized Logging Logic**: Task 7 introduces a Higher Order Component (HOC) named `WithLogging` that encapsulates the logging logic. This promotes code reuse and ensures that logging behavior is consistent across different components.
+
+3. **Debugging**: The modified `displayName` of the HOC provides better debugging information, making it easier for developers to identify which component is being logged. This improves the debugging experience and helps developers quickly locate issues in their codebase.
+
+4. **Maintenance**: By centralizing logging logic in a reusable HOC, developers can easily update or modify the logging behavior without having to change individual components. This improves maintainability and reduces the risk of introducing bugs when making changes to the logging functionality.
+
+5. **Documentation**: Task 7 serves as a form of documentation by illustrating how logging functionality can be added to components using a HOC. This helps new developers understand the logging practices used in the codebase and encourages consistent logging practices throughout the application.
+
+6. **Performance Monitoring**: Logging mount and unmount events can be useful for performance monitoring and optimization. By tracking component lifecycle events, developers can identify bottlenecks and optimize rendering performance as needed.
+
+Task 7 is important as it enhances the debugging experience, promotes code reuse, improves maintainability, and provides valuable insights into the performance of components within the application.
+
+---
+
+### Task 8 : Write a test for the HOC
+---
+
+1. **Logging and Debugging**: Adding logging functionality to components provides valuable insights into their lifecycle. By logging mount and unmount events, developers can better understand how components are rendered and managed by React. This can aid in debugging issues related to component initialization, state management, and memory leaks.
+
+2. **Code Coverage**: Task 8 ensures that the logging functionality provided by the `WithLogging` HOC is thoroughly tested. Writing tests for HOCs is crucial to achieve comprehensive code coverage and ensure the reliability of the logging mechanism.
+
+3. **Testability**: Writing tests for HOCs demonstrates good testing practices in React development. It showcases how to effectively test components that enhance or modify the behavior of other components, such as HOCs.
+
+4. **Maintainability**: Task 8 promotes maintainable code by encapsulating logging logic within a reusable HOC. This ensures consistency in logging behavior across different components and facilitates future updates or modifications to the logging mechanism.
+
+5. **Documentation and Understanding**: The tests written for the `WithLogging` HOC serve as documentation for its expected behavior. They provide clarity on how the HOC should behave when wrapping different types of components, helping developers understand its usage and functionality.
+
+6. **Quality Assurance**: By verifying that `console.log` is called correctly during component mount and unmount events, Task 8 ensures that the logging mechanism functions as expected. This contributes to the overall quality and reliability of the application.
+
+In summary, Task 8 plays a crucial role in enhancing the logging and debugging capabilities of components, improving code coverage, promoting testability and maintainability, documenting expected behavior, and ensuring the quality of the logging mechanism in the application.
+
+---
+
+### Task 9 : Declare a pure component
+---

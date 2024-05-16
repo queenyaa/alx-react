@@ -1,0 +1,656 @@
+      19 |     });
+      20 |
+
+          
+      at validateAdapter (node_modules/enzyme/src/validateAdapter.js:5:11)
+      at getAdapter (node_modules/enzyme/src/getAdapter.js:10:3)
+      at makeShallowOptions (node_modules/enzyme/src/ShallowWrapper.js:345:19)
+      at new makeShallowOptions (node_modules/enzyme/src/ShallowWrapper.js:393:21)
+      at shallow (node_modules/enzyme/src/shallow.js:10:10)
+      at Object.<anonymous> (src/App/App.test.js:17:32)
+
+  ● App component › contains the Login component
+
+
+          Enzyme Internal Error: Enzyme expects an adapter to be configured, but found none.
+          To configure an adapter, you should call `Enzyme.configure({ adapter: new Adapter() })`
+          before using any of Enzyme's top level APIs, where `Adapter` is the adapter
+          corresponding to the library currently being tested. For example:
+
+          import Adapter from 'enzyme-adapter-react-15';
+
+          To find out more about this, see https://airbnb.io/enzyme/docs/installation/index.html
+
+      20 |
+      21 |     it('contains the Login component', () => {
+    > 22 |         const wrapper = shallow(<App />);
+         |                                ^
+      23 |         expect(wrapper.find(Login)).toHaveLength(1);
+      24 |     });
+      25 |
+
+          
+      at validateAdapter (node_modules/enzyme/src/validateAdapter.js:5:11)
+      at getAdapter (node_modules/enzyme/src/getAdapter.js:10:3)
+      at makeShallowOptions (node_modules/enzyme/src/ShallowWrapper.js:345:19)
+      at new makeShallowOptions (node_modules/enzyme/src/ShallowWrapper.js:393:21)
+      at shallow (node_modules/enzyme/src/shallow.js:10:10)
+      at Object.<anonymous> (src/App/App.test.js:22:32)
+
+  ● App component › contains the Footer component
+
+
+          Enzyme Internal Error: Enzyme expects an adapter to be configured, but found none.
+          To configure an adapter, you should call `Enzyme.configure({ adapter: new Adapter() })`
+          before using any of Enzyme's top level APIs, where `Adapter` is the adapter
+          corresponding to the library currently being tested. For example:
+
+          import Adapter from 'enzyme-adapter-react-15';
+
+          To find out more about this, see https://airbnb.io/enzyme/docs/installation/index.html
+
+      25 |
+      26 |     it('contains the Footer component', () => {
+    > 27 |         const wrapper = shallow(<App />);
+         |                                ^
+      28 |         expect(wrapper.find(Footer)).toHaveLength(1);
+      29 |     });
+      30 |
+
+          
+      at validateAdapter (node_modules/enzyme/src/validateAdapter.js:5:11)
+      at getAdapter (node_modules/enzyme/src/getAdapter.js:10:3)
+      at makeShallowOptions (node_modules/enzyme/src/ShallowWrapper.js:345:19)
+      at new makeShallowOptions (node_modules/enzyme/src/ShallowWrapper.js:393:21)
+      at shallow (node_modules/enzyme/src/shallow.js:10:10)
+      at Object.<anonymous> (src/App/App.test.js:27:32)
+
+  ● App component › renders Login component when isLoggedIn is false
+
+    ReferenceError: render is not defined
+
+      30 |
+      31 |     it('renders Login component when isLoggedIn is false', () => {
+    > 32 |         const { getByText } = render(<App isLoggedIn={false} />);
+         |                               ^
+      33 |         const loginText = getByText('Log in to continue');
+      34 |         expect(loginText).toBeInTheDocument();
+      35 |       });
+
+      at Object.render (src/App/App.test.js:32:31)
+
+  ● App component › does not render CourseList component when isLoggedIn is false
+
+    ReferenceError: render is not defined
+
+      36 |     
+      37 |     it('does not render CourseList component when isLoggedIn is false', () => {
+    > 38 |       const { queryByRole } = render(<App isLoggedIn={false} />);
+         |                               ^
+      39 |       const courseListTable = queryByRole('table', { name: 'CourseList' });
+      40 |       expect(courseListTable).not.toBeInTheDocument();
+      41 |     });
+
+      at Object.render (src/App/App.test.js:38:31)
+
+  ● App component › when isLoggedIn is true › does not render Login component
+
+    ReferenceError: render is not defined
+
+      43 |     describe('when isLoggedIn is true', () => {
+      44 |       it('does not render Login component', () => {
+    > 45 |         const { queryByText } = render(<App isLoggedIn={true} />);
+         |                                 ^
+      46 |         const loginText = queryByText('Log in to continue');
+      47 |       expect(loginText).not.toBeInTheDocument();
+      48 |     });
+
+      at Object.render (src/App/App.test.js:45:33)
+
+  ● App component › when isLoggedIn is true › renders CourseList component
+
+    ReferenceError: render is not defined
+
+      49 |
+      50 |     it('renders CourseList component', () => {
+    > 51 |         const { getByRole } = render(<App isLoggedIn={true} />);
+         |                               ^
+      52 |         const courseListTable = getByRole('table', { name: 'CourseList' });
+      53 |         expect(courseListTable).toBeInTheDocument();
+      54 |       });
+
+      at Object.render (src/App/App.test.js:51:31)
+
+Test Suites: 1 failed, 1 total
+Tests:       9 failed, 9 total
+Snapshots:   0 total
+Time:        2.548 s
+Ran all test suites matching /App.test.js/i.
+
+added 2 packages, and audited 1582 packages in 7s
+
+201 packages are looking for funding
+  run `npm fund` for details
+
+33 vulnerabilities (21 moderate, 9 high, 3 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues possible (including breaking changes), run:
+  npm audit fix --force
+
+Some issues need review, and may require choosing
+a different dependency.
+
+Run `npm audit` for details.
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js                      
+
+> task_0@1.0.0 test
+> jest App.test.js
+
+ FAIL  src/App/App.test.js
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+    By default "node_modules" folder is ignored by transformers.
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    SyntaxError: /Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x03-React_component/task_0/dashboard/config/setupTests.js: Identifier 'Adapter' has already been declared. (10:7)
+
+       8 |
+       9 | import Enzyme from "enzyme";
+    > 10 | import Adapter from "enzyme-adapter-react-16";
+         |        ^
+      11 | // import '@testing-library/jest-dom';
+      12 | // import 'jest-enzyme';
+      13 |
+
+      at constructor (node_modules/@babel/parser/src/parse-error.ts:74:19)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        1.724 s, estimated 3 s
+Ran all test suites matching /App.test.js/i.
+(node:6990) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js
+
+> task_0@1.0.0 test
+> jest App.test.js
+
+ FAIL  src/App/App.test.js
+  ● Test suite failed to run
+
+    Cannot find module '@cfaester/enzyme-adapter-react-16' from 'config/setupTests.js'
+
+       5 | global.TextEncoder = require('util').TextEncoder;
+       6 | global.TextDecoder = require('util').TextDecoder;
+    >  7 | const Adapter = require('@cfaester/enzyme-adapter-react-16').default;
+         |                 ^
+       8 |
+       9 | import Enzyme from "enzyme";
+      10 | // import Adapter from "enzyme-adapter-react-16";
+
+      at Resolver._throwModNotFoundError (node_modules/jest-resolve/build/resolver.js:427:11)
+      at Object.require (config/setupTests.js:7:17)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        1.924 s
+Ran all test suites matching /App.test.js/i.
+(node:7050) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js
+
+> task_0@1.0.0 test
+> jest App.test.js
+
+(node:7110) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ FAIL  src/App/App.test.js
+  App component
+    ✓ contains the Notifications component (29 ms)
+    ✓ contains the Header component (5 ms)
+    ✓ contains the Login component (3 ms)
+    ✓ contains the Footer component (4 ms)
+    ✕ renders Login component when isLoggedIn is false (1 ms)
+    ✕ does not render CourseList component when isLoggedIn is false
+    when isLoggedIn is true
+      ✕ does not render Login component
+      ✕ renders CourseList component
+
+  ● App component › renders Login component when isLoggedIn is false
+
+    ReferenceError: render is not defined
+
+      30 |
+      31 |     it('renders Login component when isLoggedIn is false', () => {
+    > 32 |         const { getByText } = render(<App isLoggedIn={false} />);
+         |                               ^
+      33 |         const loginText = getByText('Log in to continue');
+      34 |         expect(loginText).toBeInTheDocument();
+      35 |       });
+
+      at Object.render (src/App/App.test.js:32:31)
+
+  ● App component › does not render CourseList component when isLoggedIn is false
+
+    ReferenceError: render is not defined
+
+      36 |     
+      37 |     it('does not render CourseList component when isLoggedIn is false', () => {
+    > 38 |       const { queryByRole } = render(<App isLoggedIn={false} />);
+         |                               ^
+      39 |       const courseListTable = queryByRole('table', { name: 'CourseList' });
+      40 |       expect(courseListTable).not.toBeInTheDocument();
+      41 |     });
+
+      at Object.render (src/App/App.test.js:38:31)
+
+  ● App component › when isLoggedIn is true › does not render Login component
+
+    ReferenceError: render is not defined
+
+      43 |     describe('when isLoggedIn is true', () => {
+      44 |       it('does not render Login component', () => {
+    > 45 |         const { queryByText } = render(<App isLoggedIn={true} />);
+         |                                 ^
+      46 |         const loginText = queryByText('Log in to continue');
+      47 |       expect(loginText).not.toBeInTheDocument();
+      48 |     });
+
+      at Object.render (src/App/App.test.js:45:33)
+
+  ● App component › when isLoggedIn is true › renders CourseList component
+
+    ReferenceError: render is not defined
+
+      49 |
+      50 |     it('renders CourseList component', () => {
+    > 51 |         const { getByRole } = render(<App isLoggedIn={true} />);
+         |                               ^
+      52 |         const courseListTable = getByRole('table', { name: 'CourseList' });
+      53 |         expect(courseListTable).toBeInTheDocument();
+      54 |       });
+
+      at Object.render (src/App/App.test.js:51:31)
+
+Test Suites: 1 failed, 1 total
+Tests:       4 failed, 4 passed, 8 total
+Snapshots:   0 total
+Time:        2.316 s
+Ran all test suites matching /App.test.js/i.
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js
+
+> task_0@1.0.0 test
+> jest App.test.js
+
+(node:7193) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ FAIL  src/App/App.test.js
+  App component
+    ✓ contains the Notifications component (28 ms)
+    ✓ contains the Header component (4 ms)
+    ✓ contains the Login component (4 ms)
+    ✓ contains the Footer component (5 ms)
+    ✕ renders Login component when isLoggedIn is false (1 ms)
+    ✕ does not render CourseList component when isLoggedIn is false (1 ms)
+    when isLoggedIn is true
+      ✕ does not render Login component (1 ms)
+      ✕ renders CourseList component
+
+  ● App component › renders Login component when isLoggedIn is false
+
+    TypeError: render is not a function
+
+      30 |
+      31 |     it('renders Login component when isLoggedIn is false', () => {
+    > 32 |         const { getByText } = render(<App isLoggedIn={false} />);
+         |                               ^
+      33 |         const loginText = getByText('Log in to continue');
+      34 |         expect(loginText).toBeInTheDocument();
+      35 |       });
+
+      at Object.render (src/App/App.test.js:32:31)
+
+  ● App component › does not render CourseList component when isLoggedIn is false
+
+    TypeError: render is not a function
+
+      36 |     
+      37 |     it('does not render CourseList component when isLoggedIn is false', () => {
+    > 38 |       const { queryByRole } = render(<App isLoggedIn={false} />);
+         |                               ^
+      39 |       const courseListTable = queryByRole('table', { name: 'CourseList' });
+      40 |       expect(courseListTable).not.toBeInTheDocument();
+      41 |     });
+
+      at Object.render (src/App/App.test.js:38:31)
+
+  ● App component › when isLoggedIn is true › does not render Login component
+
+    TypeError: render is not a function
+
+      43 |     describe('when isLoggedIn is true', () => {
+      44 |       it('does not render Login component', () => {
+    > 45 |         const { queryByText } = render(<App isLoggedIn={true} />);
+         |                                 ^
+      46 |         const loginText = queryByText('Log in to continue');
+      47 |       expect(loginText).not.toBeInTheDocument();
+      48 |     });
+
+      at Object.render (src/App/App.test.js:45:33)
+
+  ● App component › when isLoggedIn is true › renders CourseList component
+
+    TypeError: render is not a function
+
+      49 |
+      50 |     it('renders CourseList component', () => {
+    > 51 |         const { getByRole } = render(<App isLoggedIn={true} />);
+         |                               ^
+      52 |         const courseListTable = getByRole('table', { name: 'CourseList' });
+      53 |         expect(courseListTable).toBeInTheDocument();
+      54 |       });
+
+      at Object.render (src/App/App.test.js:51:31)
+
+Test Suites: 1 failed, 1 total
+Tests:       4 failed, 4 passed, 8 total
+Snapshots:   0 total
+Time:        2.312 s
+Ran all test suites matching /App.test.js/i.
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js
+
+> task_0@1.0.0 test
+> jest App.test.js
+
+(node:7266) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ FAIL  src/App/App.test.js
+  App component
+    ✓ contains the Notifications component (27 ms)
+    ✓ contains the Header component (5 ms)
+    ✓ contains the Login component (4 ms)
+    ✓ contains the Footer component (7 ms)
+    ✓ renders Login component when isLoggedIn is false (4 ms)
+    ✓ does not render CourseList component when isLoggedIn is false (2 ms)
+    when isLoggedIn is true
+      ✕ does not render Login component (3 ms)
+      ✕ renders CourseList component (2 ms)
+
+  ● App component › when isLoggedIn is true › does not render Login component
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 0
+    Received length: 1
+    Received object: {}
+
+      45 |           const wrapper = shallow(<App isLoggedIn={true} />); // Use shallow instead of render
+      46 |           const loginText = wrapper.find('Login'); // Find Login component in the shallow render
+    > 47 |           expect(loginText).toHaveLength(0); // Assert that the Login component is not rendered
+         |                             ^
+      48 |       });
+      49 |
+      50 |       it('renders CourseList component', () => {
+
+      at Object.toHaveLength (src/App/App.test.js:47:29)
+
+  ● App component › when isLoggedIn is true › renders CourseList component
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received object: {}
+
+      51 |           const wrapper = shallow(<App isLoggedIn={true} />); // Use shallow instead of render
+      52 |           const courseListTable = wrapper.find('CourseList'); // Find CourseList component in the shallow render
+    > 53 |           expect(courseListTable).toHaveLength(1); // Assert that the CourseList component is rendered
+         |                                   ^
+      54 |       });
+      55 |   });
+      56 | });
+
+      at Object.toHaveLength (src/App/App.test.js:53:35)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 6 passed, 8 total
+Snapshots:   0 total
+Time:        3.058 s
+Ran all test suites matching /App.test.js/i.
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js
+
+> task_0@1.0.0 test
+> jest App.test.js
+
+(node:7422) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ FAIL  src/App/App.test.js
+  App component
+    ✓ contains the Notifications component (27 ms)
+    ✓ contains the Header component (5 ms)
+    ✓ contains the Login component (4 ms)
+    ✓ contains the Footer component (6 ms)
+    ✓ renders Login component when isLoggedIn is false (4 ms)
+    ✕ does not render CourseList component when isLoggedIn is false (3 ms)
+    when isLoggedIn is true
+      ✕ does not render Login component (1 ms)
+      ✕ renders CourseList component (2 ms)
+
+  ● App component › does not render CourseList component when isLoggedIn is false
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received object: {}
+
+      38 |       const wrapper = shallow(<App isLoggedIn={false} />); // Use shallow instead of render
+      39 |       const courseListTable = wrapper.find('CourseList'); // Find CourseList component in the shallow render
+    > 40 |       expect(courseListTable).toHaveLength(1); // Assert that the CourseList component is not rendered
+         |                               ^
+      41 |   });
+      42 |
+      43 |   describe('when isLoggedIn is true', () => {
+
+      at Object.toHaveLength (src/App/App.test.js:40:31)
+
+  ● App component › when isLoggedIn is true › does not render Login component
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 0
+    Received length: 1
+    Received object: {}
+
+      45 |           const wrapper = shallow(<App isLoggedIn={true} />); // Use shallow instead of render
+      46 |           const loginText = wrapper.find('Login'); // Find Login component in the shallow render
+    > 47 |           expect(loginText).toHaveLength(0); // Assert that the Login component is not rendered
+         |                             ^
+      48 |       });
+      49 |
+      50 |       it('renders CourseList component', () => {
+
+      at Object.toHaveLength (src/App/App.test.js:47:29)
+
+  ● App component › when isLoggedIn is true › renders CourseList component
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received object: {}
+
+      51 |           const wrapper = shallow(<App isLoggedIn={true} />); // Use shallow instead of render
+      52 |           const courseListTable = wrapper.find('CourseList'); // Find CourseList component in the shallow render
+    > 53 |           expect(courseListTable).toHaveLength(1); // Assert that the CourseList component is rendered
+         |                                   ^
+      54 |       });
+      55 |   });
+      56 | });
+
+      at Object.toHaveLength (src/App/App.test.js:53:35)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 5 passed, 8 total
+Snapshots:   0 total
+Time:        3.194 s
+Ran all test suites matching /App.test.js/i.
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js
+
+> task_0@1.0.0 test
+> jest App.test.js
+
+(node:7482) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ FAIL  src/App/App.test.js
+  App component
+    ✓ contains the Notifications component (28 ms)
+    ✓ contains the Header component (4 ms)
+    ✓ contains the Login component (3 ms)
+    ✓ contains the Footer component (7 ms)
+    ✓ renders Login component when isLoggedIn is false (4 ms)
+    ✓ does not render CourseList component when isLoggedIn is false (2 ms)
+    when isLoggedIn is true
+      ✓ does not render Login component (2 ms)
+      ✕ renders CourseList component (3 ms)
+
+  ● App component › when isLoggedIn is true › renders CourseList component
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received object: {}
+
+      51 |           const wrapper = shallow(<App isLoggedIn={true} />); // Use shallow instead of render
+      52 |           const courseListTable = wrapper.find('CourseList'); // Find CourseList component in the shallow render
+    > 53 |           expect(courseListTable).toHaveLength(1); // Assert that the CourseList component is rendered
+         |                                   ^
+      54 |       });
+      55 |   });
+      56 | });
+
+      at Object.toHaveLength (src/App/App.test.js:53:35)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 7 passed, 8 total
+Snapshots:   0 total
+Time:        2.227 s, estimated 3 s
+Ran all test suites matching /App.test.js/i.
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js
+
+> task_0@1.0.0 test
+> jest App.test.js
+
+(node:7545) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  src/App/App.test.js
+  App component
+    ✓ contains the Notifications component (28 ms)
+    ✓ contains the Header component (4 ms)
+    ✓ contains the Login component (3 ms)
+    ✓ contains the Footer component (7 ms)
+    ✓ renders Login component when isLoggedIn is false (5 ms)
+    ✓ does not render CourseList component when isLoggedIn is false (2 ms)
+    when isLoggedIn is true
+      ✓ does not render Login component (1 ms)
+      ✓ renders CourseList component (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       8 passed, 8 total
+Snapshots:   0 total
+Time:        3.06 s
+Ran all test suites matching /App.test.js/i.
+queenbae@Queens-MacBook-Pro dashboard % ls
+__mocks__               node_modules
+config                  package-lock.json
+dist                    package.json
+jest1.config.js         src
+queenbae@Queens-MacBook-Pro dashboard % 
+
+ PASS  src/Notifications/Notifications.test.js
+  Notifications component
+    ✓ renders without crashing (6 ms)
+    ✓ renders three list items (3 ms)
+    ✓ renders the text "Here is the list of notifications" (249 ms)
+    ✓ renders without crashing (6 ms)
+    ✓ does not display the default message when listNotifications is provided (13 ms)
+    ✓ renders NotificationItem elements within a ul element (10 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       6 passed, 6 total
+Snapshots:   0 total
+Time:        3.53 s
+Ran all test suites matching /Notifications.test.js/i.
+queenbae@Queens-MacBook-Pro dashboard % 
+
+ PASS  src/CourseList/CourseListRow.test.js (5.393 s)
+  CourseListRow Component
+    ✓ renders one cell with colspan = 2 when textSecondCell does not exist (872 ms)
+    ✓ renders two cells when textSecondCell is present (8 ms)
+    ✓ renders correctly two td elements within a tr element (4 ms)
+
+(node:4630) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  src/CourseList/CourseList.test.js (5.453 s)
+  CourseList component
+    ✓ renders CourseList component without crashing (905 ms)
+    ✓ renders the 3 different rows (13 ms)
+    ✓ renders correctly with an empty listCourses array (17 ms)
+    ✓ renders correctly when listCourses is not provided (3 ms)
+    ✓ renders listCourses correctly (7 ms)
+
+Test Suites: 9 passed, 9 total
+Tests:       36 passed, 36 total
+Snapshots:   0 total
+Time:        7.514 s
+Ran all test suites matching /App.test.js|CourseList.test.js|CourseListRow.test.js|Footer.test.js|Header.test.js|Login.test.js|Notifications.test.js|NotificationItem.test.js|utils.test.js/i.
+
+ PASS  src/CourseList/CourseListRow.test.js (8.394 s)
+  CourseListRow Component
+    ✓ renders one cell with colspan = 2 when textSecondCell does not exist (1078 ms)
+    ✓ renders two cells when textSecondCell is present (21 ms)
+    ✓ renders correctly two td elements within a tr element (7 ms)
+
+(node:7903) [DEP0040] DeprecationWarning: The `punycode` module is deprecated.
+Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  src/CourseList/CourseList.test.js (8.453 s)
+  CourseList component
+    ✓ renders CourseList component without crashing (1084 ms)
+    ✓ renders the 3 different rows (27 ms)
+    ✓ renders correctly with an empty listCourses array (29 ms)
+    ✓ renders correctly when listCourses is not provided (3 ms)
+    ✓ renders listCourses correctly (13 ms)
+
+Test Suites: 9 passed, 9 total
+Tests:       38 passed, 38 total
+Snapshots:   0 total
+Time:        11.677 s
+Ran all test suites matching /App.test.js|CourseList.test.js|CourseListRow.test.js|
+Footer.test.js|Header.test.js|Login.test.js|Notifications.test.js|
+NotificationItem.test.js|utils.test.js/i.
