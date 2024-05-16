@@ -7,8 +7,9 @@ describe('Footer component', () => {
         shallow(<Footer />);
     });
 
-    it('renders the text "Copyright"', () => {
+    it('renders the text "© {currentYear} Holberton School main dashboard"', () => {
         const wrapper = shallow(<Footer />);
-        expect(wrapper.text()).toContain('Copyright');
+        const expectedText = `© ${new Date().getFullYear()} Holberton School main dashboard`;
+        expect(wrapper.text()).toContain(expectedText);
     });
 });

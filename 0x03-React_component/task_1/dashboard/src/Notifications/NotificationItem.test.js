@@ -1,6 +1,7 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import NotificationItem from './NotificationItem';
+import { shallow } from 'enzyme';
 
 describe('NotificationItem', () => {
   it('renders without crashing', () => {
@@ -19,10 +20,10 @@ describe('NotificationItem', () => {
 
   it('renders correct HTML with html prop', () => {
     const html = { __html: '<u>test</u>' };
-    render(<NotificationItem html={html} />);
-    const notificationItem = screen.getByText('test');
-    expect(notificationItem).toBeInTheDocument();
-    expect(notificationItem).toHaveAttribute('data-notification-type');
-    expect(notificationItem.innerHTML).toContain('<u>test</u>');
+    const wrapper = shallow(<NotificationItem html={html} />);
+    const notificationItem = wrapper.find('[data-notification-type]');
+    
+    expect(notificationItem.exists()).toBe(true);
+    expect(notificationItem.html()).toContain('<u>test</u>');
   });
 });

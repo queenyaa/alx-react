@@ -4,6 +4,7 @@ import '../Notifications/Notifications.css';
 import closeIcon from './../assets/closeicon.png';
 import NotificationItem from './NotificationItem';
 import NotificationItemShape from './NotificationItemShape';
+import { getLatestNotification } from '../utils/utils';
 
 function Notifications({ displayDrawer, listNotifications }) {
     return (

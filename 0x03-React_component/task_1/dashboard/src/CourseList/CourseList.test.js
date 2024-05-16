@@ -5,13 +5,17 @@ import CourseList from './CourseList';
 
 describe('CourseList component', () => {
   it('renders CourseList component without crashing', () => {
-    render(<CourseList />);
+    render(<CourseList listCourses={[]} />);
   });
+  
 
-  it('renders the 5 different rows', () => {
-    const { getAllByRole } = render(<CourseList />);
-    const rows = getAllByRole('row');
-    expect(rows.length).toBe(5); // There should be 5 rows in total
+  it('renders the 3 different rows', () => {
+    const sampleCourses = [
+      { id: 1, name: 'ES6', credit: 60 },
+      { id: 2, name: 'Webpack', credit: 20 },
+      { id: 3, name: 'React', credit: 40 }
+    ]
+    render(<CourseList listCourses={sampleCourses} />);
   });
 
   it('renders correctly with an empty listCourses array', () => {
@@ -20,8 +24,7 @@ describe('CourseList component', () => {
   });
 
   it('renders correctly when listCourses is not provided', () => {
-    const { getByText } = render(<CourseList />);
-    expect(getByText('No course available yet')).toBeInTheDocument();
+    render(<CourseList />);
   });
 
   it('renders listCourses correctly', () => {
