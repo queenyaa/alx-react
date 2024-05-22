@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/alt-text */
-// import './App.css';
 import { StyleSheet, css } from 'aphrodite';
 import React, { Component, useState } from 'react';
 import Notifications from '../Notifications/Notifications1';
@@ -26,6 +25,24 @@ import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBot
     { id: 2, html: { __html: '<u>New resume available</u>' }, type: 'urgent', value: 'New resume available' },
     { id: 3, html: { __html: '<u>Urgent requirement - complete by EOD</u>' }, type: 'urgent', html: {__html: getLatestNotification() } },
   ];
+
+const styles = StyleSheet.create({
+  app: {
+    fontFamily: 'Arial, Helvetica, sans-serif',
+  },
+
+  body: {
+    padding: '20px',
+  },
+
+  footer: {
+    marginBottom: '0px',
+    borderTop: '2px solid red',
+    textAlign: 'center',
+    fontStyle: 'italic',
+  },
+});
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -46,6 +63,7 @@ class App extends Component {
       this.props.logOut();
     }
   }
+
 
   render () {
   const { isLoggedIn, logOut } = this.props;
@@ -84,22 +102,5 @@ App.propTypes = {
   isLoggedIn: PropTypes.bool,
   logOut: PropTypes.func,
 };
-
-const styles = StyleSheet.create({
-  app: {
-    fontFamily: 'Arial, Helvetica, sans-serif',
-  },
-
-  body: {
-    padding: '20px',
-  },
-
-  footer: {
-    marginBottom: '0px',
-    borderTop: '2px solid red',
-    textAlign: 'center',
-    fontStyle: 'italic',
-  },
-})
 
 export default App;
