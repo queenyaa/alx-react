@@ -1,6 +1,22 @@
 import React from 'react';
-// import './Login.css';
 import { StyleSheet, css } from 'aphrodite';
+
+const styles = StyleSheet.create({
+  login: {
+    color: 'black',
+    minHeight: '50vh',
+    marginTop: '40px',
+  },
+  label: {
+    marginRight: '10px',
+  },
+  input: {
+    marginRight: '10px',
+  },
+  button: {
+    marginTop: '10px',
+  },
+});
 
 export default function Login() {
   const handleClick = (event) => {
@@ -25,20 +41,3 @@ export default function Login() {
       </div>
     );
 }
-
-const styles = StyleSheet.create({
-  login: {
-    color: 'black',
-    minHeight: '50vh',
-    marginTop: '40px',
-  },
-  label: {
-    marginRight: '10px',
-  },
-  input: {
-    marginRight: '10px',
-  },
-  button: {
-    marginTop: '10px',
-  },
-});
