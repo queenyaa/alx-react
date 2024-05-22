@@ -1,0 +1,1549 @@
+      19 |     });
+      20 |
+
+          
+      at validateAdapter (node_modules/enzyme/src/validateAdapter.js:5:11)
+      at getAdapter (node_modules/enzyme/src/getAdapter.js:10:3)
+      at makeShallowOptions (node_modules/enzyme/src/ShallowWrapper.js:345:19)
+      at new makeShallowOptions (node_modules/enzyme/src/ShallowWrapper.js:393:21)
+      at shallow (node_modules/enzyme/src/shallow.js:10:10)
+      at Object.<anonymous> (src/App/App.test.js:17:32)
+
+  ● App component › contains the Login component
+
+
+          Enzyme Internal Error: Enzyme expects an adapter to be configured, but found none.
+          To configure an adapter, you should call `Enzyme.configure({ adapter: new Adapter() })`
+          before using any of Enzyme's top level APIs, where `Adapter` is the adapter
+          corresponding to the library currently being tested. For example:
+
+          import Adapter from 'enzyme-adapter-react-15';
+
+          To find out more about this, see https://airbnb.io/enzyme/docs/installation/index.html
+
+      20 |
+      21 |     it('contains the Login component', () => {
+    > 22 |         const wrapper = shallow(<App />);
+         |                                ^
+      23 |         expect(wrapper.find(Login)).toHaveLength(1);
+      24 |     });
+      25 |
+
+          
+      at validateAdapter (node_modules/enzyme/src/validateAdapter.js:5:11)
+      at getAdapter (node_modules/enzyme/src/getAdapter.js:10:3)
+      at makeShallowOptions (node_modules/enzyme/src/ShallowWrapper.js:345:19)
+      at new makeShallowOptions (node_modules/enzyme/src/ShallowWrapper.js:393:21)
+      at shallow (node_modules/enzyme/src/shallow.js:10:10)
+      at Object.<anonymous> (src/App/App.test.js:22:32)
+
+  ● App component › contains the Footer component
+
+
+          Enzyme Internal Error: Enzyme expects an adapter to be configured, but found none.
+          To configure an adapter, you should call `Enzyme.configure({ adapter: new Adapter() })`
+          before using any of Enzyme's top level APIs, where `Adapter` is the adapter
+          corresponding to the library currently being tested. For example:
+
+          import Adapter from 'enzyme-adapter-react-15';
+
+          To find out more about this, see https://airbnb.io/enzyme/docs/installation/index.html
+
+      25 |
+      26 |     it('contains the Footer component', () => {
+    > 27 |         const wrapper = shallow(<App />);
+         |                                ^
+      28 |         expect(wrapper.find(Footer)).toHaveLength(1);
+      29 |     });
+      30 |
+
+          
+      at validateAdapter (node_modules/enzyme/src/validateAdapter.js:5:11)
+      at getAdapter (node_modules/enzyme/src/getAdapter.js:10:3)
+      at makeShallowOptions (node_modules/enzyme/src/ShallowWrapper.js:345:19)
+      at new makeShallowOptions (node_modules/enzyme/src/ShallowWrapper.js:393:21)
+      at shallow (node_modules/enzyme/src/shallow.js:10:10)
+      at Object.<anonymous> (src/App/App.test.js:27:32)
+
+  ● App component › renders Login component when isLoggedIn is false
+
+    ReferenceError: render is not defined
+
+      30 |
+      31 |     it('renders Login component when isLoggedIn is false', () => {
+    > 32 |         const { getByText } = render(<App isLoggedIn={false} />);
+         |                               ^
+      33 |         const loginText = getByText('Log in to continue');
+      34 |         expect(loginText).toBeInTheDocument();
+      35 |       });
+
+      at Object.render (src/App/App.test.js:32:31)
+
+  ● App component › does not render CourseList component when isLoggedIn is false
+
+    ReferenceError: render is not defined
+
+      36 |     
+      37 |     it('does not render CourseList component when isLoggedIn is false', () => {
+    > 38 |       const { queryByRole } = render(<App isLoggedIn={false} />);
+         |                               ^
+      39 |       const courseListTable = queryByRole('table', { name: 'CourseList' });
+      40 |       expect(courseListTable).not.toBeInTheDocument();
+      41 |     });
+
+      at Object.render (src/App/App.test.js:38:31)
+
+  ● App component › when isLoggedIn is true › does not render Login component
+
+    ReferenceError: render is not defined
+
+      43 |     describe('when isLoggedIn is true', () => {
+      44 |       it('does not render Login component', () => {
+    > 45 |         const { queryByText } = render(<App isLoggedIn={true} />);
+         |                                 ^
+      46 |         const loginText = queryByText('Log in to continue');
+      47 |       expect(loginText).not.toBeInTheDocument();
+      48 |     });
+
+      at Object.render (src/App/App.test.js:45:33)
+
+  ● App component › when isLoggedIn is true › renders CourseList component
+
+    ReferenceError: render is not defined
+
+      49 |
+      50 |     it('renders CourseList component', () => {
+    > 51 |         const { getByRole } = render(<App isLoggedIn={true} />);
+         |                               ^
+      52 |         const courseListTable = getByRole('table', { name: 'CourseList' });
+      53 |         expect(courseListTable).toBeInTheDocument();
+      54 |       });
+
+      at Object.render (src/App/App.test.js:51:31)
+
+Test Suites: 1 failed, 1 total
+Tests:       9 failed, 9 total
+Snapshots:   0 total
+Time:        2.548 s
+Ran all test suites matching /App.test.js/i.
+
+added 2 packages, and audited 1582 packages in 7s
+
+201 packages are looking for funding
+  run `npm fund` for details
+
+33 vulnerabilities (21 moderate, 9 high, 3 critical)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues possible (including breaking changes), run:
+  npm audit fix --force
+
+Some issues need review, and may require choosing
+a different dependency.
+
+Run `npm audit` for details.
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js                      
+
+> task_0@1.0.0 test
+> jest App.test.js
+
+ FAIL  src/App/App.test.js
+  ● Test suite failed to run
+
+    Jest encountered an unexpected token
+
+    Jest failed to parse a file. This happens e.g. when your code or its dependencies use non-standard JavaScript syntax, or when Jest is not configured to support such syntax.
+
+    Out of the box Jest supports Babel, which will be used to transform your files into valid JS based on your Babel configuration.
+
+    By default "node_modules" folder is ignored by transformers.
+
+    Here's what you can do:
+     • If you are trying to use ECMAScript Modules, see https://jestjs.io/docs/ecmascript-modules for how to enable it.
+     • If you are trying to use TypeScript, see https://jestjs.io/docs/getting-started#using-typescript
+     • To have some of your "node_modules" files transformed, you can specify a custom "transformIgnorePatterns" in your config.
+     • If you need a custom transformation specify a "transform" option in your config.
+     • If you simply want to mock your non-JS modules (e.g. binary assets) you can stub them out with the "moduleNameMapper" config option.
+
+    You'll find more details and examples of these config options in the docs:
+    https://jestjs.io/docs/configuration
+    For information about custom transformations, see:
+    https://jestjs.io/docs/code-transformation
+
+    Details:
+
+    SyntaxError: /Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x03-React_component/task_0/dashboard/config/setupTests.js: Identifier 'Adapter' has already been declared. (10:7)
+
+       8 |
+       9 | import Enzyme from "enzyme";
+    > 10 | import Adapter from "enzyme-adapter-react-16";
+         |        ^
+      11 | // import '@testing-library/jest-dom';
+      12 | // import 'jest-enzyme';
+      13 |
+
+      at constructor (node_modules/@babel/parser/src/parse-error.ts:74:19)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        1.724 s, estimated 3 s
+Ran all test suites matching /App.test.js/i.
+(node:6990) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js
+
+> task_0@1.0.0 test
+> jest App.test.js
+
+ FAIL  src/App/App.test.js
+  ● Test suite failed to run
+
+    Cannot find module '@cfaester/enzyme-adapter-react-16' from 'config/setupTests.js'
+
+       5 | global.TextEncoder = require('util').TextEncoder;
+       6 | global.TextDecoder = require('util').TextDecoder;
+    >  7 | const Adapter = require('@cfaester/enzyme-adapter-react-16').default;
+         |                 ^
+       8 |
+       9 | import Enzyme from "enzyme";
+      10 | // import Adapter from "enzyme-adapter-react-16";
+
+      at Resolver._throwModNotFoundError (node_modules/jest-resolve/build/resolver.js:427:11)
+      at Object.require (config/setupTests.js:7:17)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        1.924 s
+Ran all test suites matching /App.test.js/i.
+(node:7050) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js
+
+> task_0@1.0.0 test
+> jest App.test.js
+
+(node:7110) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ FAIL  src/App/App.test.js
+  App component
+    ✓ contains the Notifications component (29 ms)
+    ✓ contains the Header component (5 ms)
+    ✓ contains the Login component (3 ms)
+    ✓ contains the Footer component (4 ms)
+    ✕ renders Login component when isLoggedIn is false (1 ms)
+    ✕ does not render CourseList component when isLoggedIn is false
+    when isLoggedIn is true
+      ✕ does not render Login component
+      ✕ renders CourseList component
+
+  ● App component › renders Login component when isLoggedIn is false
+
+    ReferenceError: render is not defined
+
+      30 |
+      31 |     it('renders Login component when isLoggedIn is false', () => {
+    > 32 |         const { getByText } = render(<App isLoggedIn={false} />);
+         |                               ^
+      33 |         const loginText = getByText('Log in to continue');
+      34 |         expect(loginText).toBeInTheDocument();
+      35 |       });
+
+      at Object.render (src/App/App.test.js:32:31)
+
+  ● App component › does not render CourseList component when isLoggedIn is false
+
+    ReferenceError: render is not defined
+
+      36 |     
+      37 |     it('does not render CourseList component when isLoggedIn is false', () => {
+    > 38 |       const { queryByRole } = render(<App isLoggedIn={false} />);
+         |                               ^
+      39 |       const courseListTable = queryByRole('table', { name: 'CourseList' });
+      40 |       expect(courseListTable).not.toBeInTheDocument();
+      41 |     });
+
+      at Object.render (src/App/App.test.js:38:31)
+
+  ● App component › when isLoggedIn is true › does not render Login component
+
+    ReferenceError: render is not defined
+
+      43 |     describe('when isLoggedIn is true', () => {
+      44 |       it('does not render Login component', () => {
+    > 45 |         const { queryByText } = render(<App isLoggedIn={true} />);
+         |                                 ^
+      46 |         const loginText = queryByText('Log in to continue');
+      47 |       expect(loginText).not.toBeInTheDocument();
+      48 |     });
+
+      at Object.render (src/App/App.test.js:45:33)
+
+  ● App component › when isLoggedIn is true › renders CourseList component
+
+    ReferenceError: render is not defined
+
+      49 |
+      50 |     it('renders CourseList component', () => {
+    > 51 |         const { getByRole } = render(<App isLoggedIn={true} />);
+         |                               ^
+      52 |         const courseListTable = getByRole('table', { name: 'CourseList' });
+      53 |         expect(courseListTable).toBeInTheDocument();
+      54 |       });
+
+      at Object.render (src/App/App.test.js:51:31)
+
+Test Suites: 1 failed, 1 total
+Tests:       4 failed, 4 passed, 8 total
+Snapshots:   0 total
+Time:        2.316 s
+Ran all test suites matching /App.test.js/i.
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js
+
+> task_0@1.0.0 test
+> jest App.test.js
+
+(node:7193) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ FAIL  src/App/App.test.js
+  App component
+    ✓ contains the Notifications component (28 ms)
+    ✓ contains the Header component (4 ms)
+    ✓ contains the Login component (4 ms)
+    ✓ contains the Footer component (5 ms)
+    ✕ renders Login component when isLoggedIn is false (1 ms)
+    ✕ does not render CourseList component when isLoggedIn is false (1 ms)
+    when isLoggedIn is true
+      ✕ does not render Login component (1 ms)
+      ✕ renders CourseList component
+
+  ● App component › renders Login component when isLoggedIn is false
+
+    TypeError: render is not a function
+
+      30 |
+      31 |     it('renders Login component when isLoggedIn is false', () => {
+    > 32 |         const { getByText } = render(<App isLoggedIn={false} />);
+         |                               ^
+      33 |         const loginText = getByText('Log in to continue');
+      34 |         expect(loginText).toBeInTheDocument();
+      35 |       });
+
+      at Object.render (src/App/App.test.js:32:31)
+
+  ● App component › does not render CourseList component when isLoggedIn is false
+
+    TypeError: render is not a function
+
+      36 |     
+      37 |     it('does not render CourseList component when isLoggedIn is false', () => {
+    > 38 |       const { queryByRole } = render(<App isLoggedIn={false} />);
+         |                               ^
+      39 |       const courseListTable = queryByRole('table', { name: 'CourseList' });
+      40 |       expect(courseListTable).not.toBeInTheDocument();
+      41 |     });
+
+      at Object.render (src/App/App.test.js:38:31)
+
+  ● App component › when isLoggedIn is true › does not render Login component
+
+    TypeError: render is not a function
+
+      43 |     describe('when isLoggedIn is true', () => {
+      44 |       it('does not render Login component', () => {
+    > 45 |         const { queryByText } = render(<App isLoggedIn={true} />);
+         |                                 ^
+      46 |         const loginText = queryByText('Log in to continue');
+      47 |       expect(loginText).not.toBeInTheDocument();
+      48 |     });
+
+      at Object.render (src/App/App.test.js:45:33)
+
+  ● App component › when isLoggedIn is true › renders CourseList component
+
+    TypeError: render is not a function
+
+      49 |
+      50 |     it('renders CourseList component', () => {
+    > 51 |         const { getByRole } = render(<App isLoggedIn={true} />);
+         |                               ^
+      52 |         const courseListTable = getByRole('table', { name: 'CourseList' });
+      53 |         expect(courseListTable).toBeInTheDocument();
+      54 |       });
+
+      at Object.render (src/App/App.test.js:51:31)
+
+Test Suites: 1 failed, 1 total
+Tests:       4 failed, 4 passed, 8 total
+Snapshots:   0 total
+Time:        2.312 s
+Ran all test suites matching /App.test.js/i.
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js
+
+> task_0@1.0.0 test
+> jest App.test.js
+
+(node:7266) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ FAIL  src/App/App.test.js
+  App component
+    ✓ contains the Notifications component (27 ms)
+    ✓ contains the Header component (5 ms)
+    ✓ contains the Login component (4 ms)
+    ✓ contains the Footer component (7 ms)
+    ✓ renders Login component when isLoggedIn is false (4 ms)
+    ✓ does not render CourseList component when isLoggedIn is false (2 ms)
+    when isLoggedIn is true
+      ✕ does not render Login component (3 ms)
+      ✕ renders CourseList component (2 ms)
+
+  ● App component › when isLoggedIn is true › does not render Login component
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 0
+    Received length: 1
+    Received object: {}
+
+      45 |           const wrapper = shallow(<App isLoggedIn={true} />); // Use shallow instead of render
+      46 |           const loginText = wrapper.find('Login'); // Find Login component in the shallow render
+    > 47 |           expect(loginText).toHaveLength(0); // Assert that the Login component is not rendered
+         |                             ^
+      48 |       });
+      49 |
+      50 |       it('renders CourseList component', () => {
+
+      at Object.toHaveLength (src/App/App.test.js:47:29)
+
+  ● App component › when isLoggedIn is true › renders CourseList component
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received object: {}
+
+      51 |           const wrapper = shallow(<App isLoggedIn={true} />); // Use shallow instead of render
+      52 |           const courseListTable = wrapper.find('CourseList'); // Find CourseList component in the shallow render
+    > 53 |           expect(courseListTable).toHaveLength(1); // Assert that the CourseList component is rendered
+         |                                   ^
+      54 |       });
+      55 |   });
+      56 | });
+
+      at Object.toHaveLength (src/App/App.test.js:53:35)
+
+Test Suites: 1 failed, 1 total
+Tests:       2 failed, 6 passed, 8 total
+Snapshots:   0 total
+Time:        3.058 s
+Ran all test suites matching /App.test.js/i.
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js
+
+> task_0@1.0.0 test
+> jest App.test.js
+
+(node:7422) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ FAIL  src/App/App.test.js
+  App component
+    ✓ contains the Notifications component (27 ms)
+    ✓ contains the Header component (5 ms)
+    ✓ contains the Login component (4 ms)
+    ✓ contains the Footer component (6 ms)
+    ✓ renders Login component when isLoggedIn is false (4 ms)
+    ✕ does not render CourseList component when isLoggedIn is false (3 ms)
+    when isLoggedIn is true
+      ✕ does not render Login component (1 ms)
+      ✕ renders CourseList component (2 ms)
+
+  ● App component › does not render CourseList component when isLoggedIn is false
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received object: {}
+
+      38 |       const wrapper = shallow(<App isLoggedIn={false} />); // Use shallow instead of render
+      39 |       const courseListTable = wrapper.find('CourseList'); // Find CourseList component in the shallow render
+    > 40 |       expect(courseListTable).toHaveLength(1); // Assert that the CourseList component is not rendered
+         |                               ^
+      41 |   });
+      42 |
+      43 |   describe('when isLoggedIn is true', () => {
+
+      at Object.toHaveLength (src/App/App.test.js:40:31)
+
+  ● App component › when isLoggedIn is true › does not render Login component
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 0
+    Received length: 1
+    Received object: {}
+
+      45 |           const wrapper = shallow(<App isLoggedIn={true} />); // Use shallow instead of render
+      46 |           const loginText = wrapper.find('Login'); // Find Login component in the shallow render
+    > 47 |           expect(loginText).toHaveLength(0); // Assert that the Login component is not rendered
+         |                             ^
+      48 |       });
+      49 |
+      50 |       it('renders CourseList component', () => {
+
+      at Object.toHaveLength (src/App/App.test.js:47:29)
+
+  ● App component › when isLoggedIn is true › renders CourseList component
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received object: {}
+
+      51 |           const wrapper = shallow(<App isLoggedIn={true} />); // Use shallow instead of render
+      52 |           const courseListTable = wrapper.find('CourseList'); // Find CourseList component in the shallow render
+    > 53 |           expect(courseListTable).toHaveLength(1); // Assert that the CourseList component is rendered
+         |                                   ^
+      54 |       });
+      55 |   });
+      56 | });
+
+      at Object.toHaveLength (src/App/App.test.js:53:35)
+
+Test Suites: 1 failed, 1 total
+Tests:       3 failed, 5 passed, 8 total
+Snapshots:   0 total
+Time:        3.194 s
+Ran all test suites matching /App.test.js/i.
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js
+
+> task_0@1.0.0 test
+> jest App.test.js
+
+(node:7482) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ FAIL  src/App/App.test.js
+  App component
+    ✓ contains the Notifications component (28 ms)
+    ✓ contains the Header component (4 ms)
+    ✓ contains the Login component (3 ms)
+    ✓ contains the Footer component (7 ms)
+    ✓ renders Login component when isLoggedIn is false (4 ms)
+    ✓ does not render CourseList component when isLoggedIn is false (2 ms)
+    when isLoggedIn is true
+      ✓ does not render Login component (2 ms)
+      ✕ renders CourseList component (3 ms)
+
+  ● App component › when isLoggedIn is true › renders CourseList component
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received object: {}
+
+      51 |           const wrapper = shallow(<App isLoggedIn={true} />); // Use shallow instead of render
+      52 |           const courseListTable = wrapper.find('CourseList'); // Find CourseList component in the shallow render
+    > 53 |           expect(courseListTable).toHaveLength(1); // Assert that the CourseList component is rendered
+         |                                   ^
+      54 |       });
+      55 |   });
+      56 | });
+
+      at Object.toHaveLength (src/App/App.test.js:53:35)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 7 passed, 8 total
+Snapshots:   0 total
+Time:        2.227 s, estimated 3 s
+Ran all test suites matching /App.test.js/i.
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js
+
+> task_0@1.0.0 test
+> jest App.test.js
+
+(node:7545) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  src/App/App.test.js
+  App component
+    ✓ contains the Notifications component (28 ms)
+    ✓ contains the Header component (4 ms)
+    ✓ contains the Login component (3 ms)
+    ✓ contains the Footer component (7 ms)
+    ✓ renders Login component when isLoggedIn is false (5 ms)
+    ✓ does not render CourseList component when isLoggedIn is false (2 ms)
+    when isLoggedIn is true
+      ✓ does not render Login component (1 ms)
+      ✓ renders CourseList component (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       8 passed, 8 total
+Snapshots:   0 total
+Time:        3.06 s
+Ran all test suites matching /App.test.js/i.
+queenbae@Queens-MacBook-Pro dashboard % ls
+__mocks__               node_modules
+config                  package-lock.json
+dist                    package.json
+jest1.config.js         src
+queenbae@Queens-MacBook-Pro dashboard % 
+
+ PASS  src/Notifications/Notifications.test.js
+  Notifications component
+    ✓ renders without crashing (6 ms)
+    ✓ renders three list items (3 ms)
+    ✓ renders the text "Here is the list of notifications" (249 ms)
+    ✓ renders without crashing (6 ms)
+    ✓ does not display the default message when listNotifications is provided (13 ms)
+    ✓ renders NotificationItem elements within a ul element (10 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       6 passed, 6 total
+Snapshots:   0 total
+Time:        3.53 s
+Ran all test suites matching /Notifications.test.js/i.
+queenbae@Queens-MacBook-Pro dashboard % 
+
+ PASS  src/CourseList/CourseListRow.test.js (5.393 s)
+  CourseListRow Component
+    ✓ renders one cell with colspan = 2 when textSecondCell does not exist (872 ms)
+    ✓ renders two cells when textSecondCell is present (8 ms)
+    ✓ renders correctly two td elements within a tr element (4 ms)
+
+(node:4630) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  src/CourseList/CourseList.test.js (5.453 s)
+  CourseList component
+    ✓ renders CourseList component without crashing (905 ms)
+    ✓ renders the 3 different rows (13 ms)
+    ✓ renders correctly with an empty listCourses array (17 ms)
+    ✓ renders correctly when listCourses is not provided (3 ms)
+    ✓ renders listCourses correctly (7 ms)
+
+Test Suites: 9 passed, 9 total
+Tests:       36 passed, 36 total
+Snapshots:   0 total
+Time:        7.514 s
+Ran all test suites matching /App.test.js|CourseList.test.js|CourseListRow.test.js|Footer.test.js|Header.test.js|Login.test.js|Notifications.test.js|NotificationItem.test.js|utils.test.js/i.
+
+ PASS  src/CourseList/CourseListRow.test.js (8.394 s)
+  CourseListRow Component
+    ✓ renders one cell with colspan = 2 when textSecondCell does not exist (1078 ms)
+    ✓ renders two cells when textSecondCell is present (21 ms)
+    ✓ renders correctly two td elements within a tr element (7 ms)
+
+(node:7903) [DEP0040] DeprecationWarning: The `punycode` module is deprecated.
+Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  src/CourseList/CourseList.test.js (8.453 s)
+  CourseList component
+    ✓ renders CourseList component without crashing (1084 ms)
+    ✓ renders the 3 different rows (27 ms)
+    ✓ renders correctly with an empty listCourses array (29 ms)
+    ✓ renders correctly when listCourses is not provided (3 ms)
+    ✓ renders listCourses correctly (13 ms)
+
+Test Suites: 9 passed, 9 total
+Tests:       38 passed, 38 total
+Snapshots:   0 total
+Time:        11.677 s
+Ran all test suites matching /App.test.js|CourseList.test.js|CourseListRow.test.js|
+Footer.test.js|Header.test.js|Login.test.js|Notifications.test.js|
+NotificationItem.test.js|utils.test.js/i.
+
+May 21, 2024
+---
+
+      24 |     wrapper.update();
+      25 |     const item = wrapper.find("div.Notifications");
+    > 26 |     expect(item).toHaveLength(0);
+         |                  ^
+      27 |   });
+      28 |
+      29 |   it("menu item is being displayed when displayDrawer is true", () => {
+
+      at Object.toHaveLength (src/Notifications/Notifications2.test.js:26:18)
+
+  ● <Notifications /> › menu item is being displayed when displayDrawer is true
+
+    TypeError: Cannot read properties of undefined (reading 'length')
+
+      43 |                 <p>Here is the list of notifications</p>
+      44 |                 <ul>
+    > 45 |                   {listNotifications.length === 0 && (
+         |                                      ^
+      46 |                     <NotificationItem value="No new notification for now" />
+      47 |                   )}
+      48 |                   {listNotifications.map((notification) => (
+
+      at Notifications.length (src/Notifications/Notifications.js:45:38)
+      at ReactShallowRenderer.render [as _mountClassComponent] (node_modules/react-shallow-renderer/cjs/react-shallow-renderer.js:915:37)
+      at ReactShallowRenderer._mountClassComponent [as render] (node_modules/react-shallow-renderer/cjs/react-shallow-renderer.js:829:16)
+      at render (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:504:41)
+      at renderElement (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:587:82)
+      at fn (node_modules/@cfaester/enzyme-adapter-react-18/dist/enzyme-adapter-utils/index.js:91:20)
+      at Object.render (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:587:74)
+      at new render (node_modules/enzyme/src/ShallowWrapper.js:411:22)
+      at shallow (node_modules/enzyme/src/shallow.js:10:10)
+      at Object.<anonymous> (src/Notifications/Notifications2.test.js:30:28)
+
+  ● <Notifications /> › div.Notifications is being displayed when displayDrawer is true
+
+    TypeError: Cannot read properties of undefined (reading 'length')
+
+      43 |                 <p>Here is the list of notifications</p>
+      44 |                 <ul>
+    > 45 |                   {listNotifications.length === 0 && (
+         |                                      ^
+      46 |                     <NotificationItem value="No new notification for now" />
+      47 |                   )}
+      48 |                   {listNotifications.map((notification) => (
+
+      at Notifications.length (src/Notifications/Notifications.js:45:38)
+      at ReactShallowRenderer.render [as _mountClassComponent] (node_modules/react-shallow-renderer/cjs/react-shallow-renderer.js:915:37)
+      at ReactShallowRenderer._mountClassComponent [as render] (node_modules/react-shallow-renderer/cjs/react-shallow-renderer.js:829:16)
+      at render (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:504:41)
+      at renderElement (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:587:82)
+      at fn (node_modules/@cfaester/enzyme-adapter-react-18/dist/enzyme-adapter-utils/index.js:91:20)
+      at Object.render (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:587:74)
+      at new render (node_modules/enzyme/src/ShallowWrapper.js:411:22)
+      at shallow (node_modules/enzyme/src/shallow.js:10:10)
+      at Object.<anonymous> (src/Notifications/Notifications2.test.js:37:28)
+
+  ● <Notifications /> › Notifications with listNotifications › first NotificationItem renders the correct html
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: {"__html": "<u>New course available</u>"}
+    Received: undefined
+
+      69 |       wrapper.update();
+      70 |       const firstItem = wrapper.find("NotificationItem").first();
+    > 71 |       expect(firstItem.prop("html")).toEqual({ __html: '<u>New course available</u>' });
+         |                                      ^
+      72 |     });
+      73 |   });
+      74 |
+
+      at Object.toEqual (src/Notifications/Notifications2.test.js:71:38)
+
+  ● <Notifications /> › Notifications without listNotifications or empty listNotifications › Notifications renders Notification Item correct without listNotifications
+
+    TypeError: Cannot read properties of undefined (reading 'length')
+
+      43 |                 <p>Here is the list of notifications</p>
+      44 |                 <ul>
+    > 45 |                   {listNotifications.length === 0 && (
+         |                                      ^
+      46 |                     <NotificationItem value="No new notification for now" />
+      47 |                   )}
+      48 |                   {listNotifications.map((notification) => (
+
+      at Notifications.length (src/Notifications/Notifications.js:45:38)
+      at ReactShallowRenderer.render [as _mountClassComponent] (node_modules/react-shallow-renderer/cjs/react-shallow-renderer.js:915:37)
+      at ReactShallowRenderer._mountClassComponent [as render] (node_modules/react-shallow-renderer/cjs/react-shallow-renderer.js:829:16)
+      at render (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:504:41)
+      at renderElement (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:587:82)
+      at fn (node_modules/@cfaester/enzyme-adapter-react-18/dist/enzyme-adapter-utils/index.js:91:20)
+      at Object.render (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:587:74)
+      at new render (node_modules/enzyme/src/ShallowWrapper.js:411:22)
+      at shallow (node_modules/enzyme/src/shallow.js:10:10)
+      at Object.<anonymous> (src/Notifications/Notifications2.test.js:94:30)
+
+ FAIL  src/Notifications/Notifications1.test.js
+  Notifications component
+    ✓ renders without crashing (2 ms)
+    ✓ renders three list items (2 ms)
+    ✕ renders the text "Here is the list of notifications" (1 ms)
+    ✓ renders without crashing (23 ms)
+    ✓ does not display the default message when listNotifications is provided (15 ms)
+    ✕ renders NotificationItem elements within a ul element (18 ms)
+
+  ● Notifications component › renders the text "Here is the list of notifications"
+
+    ReferenceError: listNotifications is not defined
+
+      16 |
+      17 |   test('renders the text "Here is the list of notifications"', () => {
+    > 18 |     const wrapper = shallow(<listNotifications listNotifications={listNotifications} />);
+         |                                                                   ^
+      19 |     expect(wrapper.find('.Notifications-list p').text()).toContain('Here is the list of notifications');
+      20 |   });
+      21 |
+
+      at Object.listNotifications (src/Notifications/Notifications1.test.js:18:67)
+
+  ● Notifications component › renders NotificationItem elements within a ul element
+
+    expect(received).toBeInTheDocument()
+
+    received value must be an HTMLElement or an SVGElement.
+    Received has value: null
+
+      40 |     const { container } = render(<Notifications displayDrawer listNotifications={listNotifications} />);
+      41 |     const ulElement = container.querySelector('.Notifications-list ul');
+    > 42 |     expect(ulElement).toBeInTheDocument();
+         |                       ^
+      43 |     expect(ulElement.children).toHaveLength(2); // Assuming there are two NotificationItem elements
+      44 |   });
+      45 | });
+
+      at __EXTERNAL_MATCHER_TRAP__ (node_modules/expect/build/index.js:325:30)
+      at Object.throwingMatcher [as toBeInTheDocument] (node_modules/expect/build/index.js:326:15)
+      at Object.toBeInTheDocument (src/Notifications/Notifications1.test.js:42:23)
+
+ PASS  src/CourseList/CourseList.test.js
+  CourseList component
+    ✓ renders CourseList component without crashing (8 ms)
+    ✓ renders the 3 different rows (6 ms)
+    ✓ renders correctly with an empty listCourses array (9 ms)
+    ✓ renders correctly when listCourses is not provided (3 ms)
+    ✓ renders listCourses correctly (11 ms)
+
+  console.error
+    Warning: findDOMNode is deprecated and will be removed in the next major release. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node
+
+      46 |     ];
+      47 |     const wrapper = mount(<Notifications displayDrawer={true} listNotifications={sampleNotifications} />);
+    > 48 |     const htmlContent = wrapper.html();
+         |                                 ^
+      49 |     expect(htmlContent).toContain('Here is the list of notifications');
+      50 |   });
+      51 |
+
+      at call (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at Object.error [as findDOMNode] (node_modules/react-dom/cjs/react-dom.development.js:29666:7)
+      at findDOMNode (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:248:40)
+      at mapper (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:257:12)
+      at ReactEighteenAdapter.nodeToHostNode (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:709:23)
+      at nodeToHostNode (node_modules/enzyme/src/RSTTraversal.js:202:39)
+      at handleHostNodes (node_modules/enzyme/src/RSTTraversal.js:160:12)
+      at getTextFromRSTNode (node_modules/enzyme/src/RSTTraversal.js:197:10)
+      at getHTMLFromHostNodes (node_modules/enzyme/src/RSTTraversal.js:199:14)
+          at Array.map (<anonymous>)
+      at map (node_modules/enzyme/src/RSTTraversal.js:165:31)
+      at getTextFromRSTNode (node_modules/enzyme/src/RSTTraversal.js:197:10)
+      at ReactWrapper.<anonymous> (node_modules/enzyme/src/ReactWrapper.js:641:39)
+      at ReactWrapper.call [as single] (node_modules/enzyme/src/ReactWrapper.js:1170:21)
+      at ReactWrapper.single [as html] (node_modules/enzyme/src/ReactWrapper.js:641:17)
+      at Object.html (src/Notifications/Notifications.test.js:48:33)
+
+ PASS  src/Notifications/Notifications.test.js
+  Notifications component
+    ✓ renders without crashing (4 ms)
+    ✓ renders three list items (3 ms)
+    ✓ renders the text "Here is the list of notifications" (48 ms)
+    ✓ renders without crashing (6 ms)
+    ✓ calls console.log when markAsRead is invoked (4 ms)
+    ✓ does not rerender when props are updated with the same list (85 ms)
+    ✓ rerenders when props are updated with a longer list (6 ms)
+    ✓ does not rerender when props are updated with the same list (5 ms)
+    ✓ rerenders when props are updated with a longer list (4 ms)
+
+ PASS  src/Notifications/NotificationItem.test.js
+  NotificationItem
+    ✓ renders without crashing (11 ms)
+    ✓ renders correct HTML with type and value props (4 ms)
+    ✓ renders correct HTML with html prop (11 ms)
+  NotificationItem component
+    ✓ calls markAsRead with the right ID argument when clicked (2 ms)
+
+ PASS  src/Header/Header.test.js
+  Header component
+    ✓ renders without crashing (6 ms)
+    ✓ renders img and h1 tags (38 ms)
+
+ PASS  src/CourseList/CourseListRow.test.js
+  CourseListRow Component
+    ✓ renders one cell with colspan = 2 when textSecondCell does not exist (7 ms)
+    ✓ renders two cells when textSecondCell is present (4 ms)
+    ✓ renders correctly two td elements within a tr element (4 ms)
+    ✓ applies the correct background color for header rows (21 ms)
+    ✓ applies the correct background color for regular rows (12 ms)
+
+ PASS  src/BodySection/BodySectionWithMarginBottom.test.js
+  <BodySectionWithMarginBottom />
+    ✓ renders correctly with BodySection component and props are passed correctly (20 ms)
+
+ PASS  src/Login/Login.test.js
+  Login component
+    ✓ renders without crashing (2 ms)
+    ✓ renders 2 input and 2 label tags (3 ms)
+
+ PASS  src/HOC/WithLogging.test.js
+  WithLogging
+    ✓ calls console.log with "Component" on mount and unmount with pure HTML (6 ms)
+    ✓ calls console.log with the component name on mount and unmount with Login component (3 ms)
+
+ PASS  src/Footer/Footer.test.js
+  Footer component
+    ✓ renders without crashing (2 ms)
+    ✓ renders the text "© {currentYear} Holberton School main dashboard" (2 ms)
+
+ PASS  src/BodySection/BodySection.test.js
+  <BodySection />
+    ✓ renders correctly with children and h2 element (4 ms)
+
+ PASS  src/utils/utils.test.js
+  getFullYear
+    ✓ returns the current year (1 ms)
+  getFooterCopy
+    ✓ returns the correct footer string (1 ms)
+  getLatestNotification
+    ✓ shold return correct string element (1 ms)
+
+
+ RUNS  src/App/App.test.js
+/Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x04-React_inline_styling/task_1/dashboard/node_modules/aphrodite/lib/chunk-d8625444.js:1525
+    styleTag = document.querySelector("style[data-aphrodite]")
+                        ^
+
+TypeError: Cannot read properties of undefined (reading 'querySelector')
+    at injectStyleTag (/Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x04-React_inline_styling/task_1/dashboard/node_modules/aphrodite/lib/chunk-d8625444.js:1525:25)
+    at flushToStyleTag (/Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x04-React_inline_styling/task_1/dashboard/node_modules/aphrodite/lib/chunk-d8625444.js:1704:5)
+    at RawTask.Object.<anonymous>.RawTask.call (/Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x04-React_inline_styling/task_1/dashboard/node_modules/asap/asap.js:38:15)
+    at flush (/Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x04-React_inline_styling/task_1/dashboard/node_modules/asap/raw.js:49:25)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+
+Node.js v21.7.2
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js BodySection.test.js BodySectionWithMarginBottom.test.js CourseList.test.js CourseListRow.test.js Footer.test.js Header.test.js WithLogging.test.js Login.test.js NotificationItem.test.js Notifications.test.js utils.test.js -- --maxWorkers=1 --detectOpenHandles
+
+> task_0@1.0.0 test
+> jest App.test.js BodySection.test.js BodySectionWithMarginBottom.test.js CourseList.test.js CourseListRow.test.js Footer.test.js Header.test.js WithLogging.test.js Login.test.js NotificationItem.test.js Notifications.test.js utils.test.js --maxWorkers=1 --detectOpenHandles
+
+(node:5770) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  src/CourseList/CourseList.test.js
+  CourseList component
+    ✓ renders CourseList component without crashing (32 ms)
+    ✓ renders the 3 different rows (9 ms)
+    ✓ renders correctly with an empty listCourses array (20 ms)
+    ✓ renders correctly when listCourses is not provided (10 ms)
+    ✓ renders listCourses correctly (10 ms)
+
+  console.error
+    Warning: findDOMNode is deprecated and will be removed in the next major release. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node
+
+      46 |     ];
+      47 |     const wrapper = mount(<Notifications displayDrawer={true} listNotifications={sampleNotifications} />);
+    > 48 |     const htmlContent = wrapper.html();
+         |                                 ^
+      49 |     expect(htmlContent).toContain('Here is the list of notifications');
+      50 |   });
+      51 |
+
+      at call (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at Object.error [as findDOMNode] (node_modules/react-dom/cjs/react-dom.development.js:29666:7)
+      at findDOMNode (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:248:40)
+      at mapper (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:257:12)
+      at ReactEighteenAdapter.nodeToHostNode (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:709:23)
+      at nodeToHostNode (node_modules/enzyme/src/RSTTraversal.js:202:39)
+      at handleHostNodes (node_modules/enzyme/src/RSTTraversal.js:160:12)
+      at getTextFromRSTNode (node_modules/enzyme/src/RSTTraversal.js:197:10)
+      at getHTMLFromHostNodes (node_modules/enzyme/src/RSTTraversal.js:199:14)
+          at Array.map (<anonymous>)
+      at map (node_modules/enzyme/src/RSTTraversal.js:165:31)
+      at getTextFromRSTNode (node_modules/enzyme/src/RSTTraversal.js:197:10)
+      at ReactWrapper.<anonymous> (node_modules/enzyme/src/ReactWrapper.js:641:39)
+      at ReactWrapper.call [as single] (node_modules/enzyme/src/ReactWrapper.js:1170:21)
+      at ReactWrapper.single [as html] (node_modules/enzyme/src/ReactWrapper.js:641:17)
+      at Object.html (src/Notifications/Notifications.test.js:48:33)
+
+ PASS  src/Notifications/Notifications.test.js
+  Notifications component
+    ✓ renders without crashing (7 ms)
+    ✓ renders three list items (6 ms)
+    ✓ renders the text "Here is the list of notifications" (205 ms)
+    ✓ renders without crashing (5 ms)
+    ✓ calls console.log when markAsRead is invoked (17 ms)
+    ✓ does not rerender when props are updated with the same list (7 ms)
+    ✓ rerenders when props are updated with a longer list (6 ms)
+    ✓ does not rerender when props are updated with the same list (4 ms)
+    ✓ rerenders when props are updated with a longer list (4 ms)
+
+ PASS  src/Notifications/NotificationItem.test.js
+  NotificationItem
+    ✓ renders without crashing (5 ms)
+    ✓ renders correct HTML with type and value props (5 ms)
+    ✓ renders correct HTML with html prop (53 ms)
+  NotificationItem component
+    ✓ calls markAsRead with the right ID argument when clicked (2 ms)
+
+ PASS  src/Header/Header.test.js
+  Header component
+    ✓ renders without crashing (6 ms)
+    ✓ renders img and h1 tags (39 ms)
+
+ PASS  src/CourseList/CourseListRow.test.js
+  CourseListRow Component
+    ✓ renders one cell with colspan = 2 when textSecondCell does not exist (6 ms)
+    ✓ renders two cells when textSecondCell is present (7 ms)
+    ✓ renders correctly two td elements within a tr element (4 ms)
+    ✓ applies the correct background color for header rows (19 ms)
+    ✓ applies the correct background color for regular rows (7 ms)
+
+ PASS  src/BodySection/BodySectionWithMarginBottom.test.js
+  <BodySectionWithMarginBottom />
+    ✓ renders correctly with BodySection component and props are passed correctly (19 ms)
+
+ PASS  src/Login/Login.test.js
+  Login component
+    ✓ renders without crashing (2 ms)
+    ✓ renders 2 input and 2 label tags (4 ms)
+
+ PASS  src/HOC/WithLogging.test.js
+  WithLogging
+    ✓ calls console.log with "Component" on mount and unmount with pure HTML (5 ms)
+    ✓ calls console.log with the component name on mount and unmount with Login component (3 ms)
+
+ PASS  src/Footer/Footer.test.js
+  Footer component
+    ✓ renders without crashing (2 ms)
+    ✓ renders the text "© {currentYear} Holberton School main dashboard" (2 ms)
+
+ PASS  src/BodySection/BodySection.test.js
+  <BodySection />
+    ✓ renders correctly with children and h2 element (4 ms)
+
+ PASS  src/utils/utils.test.js
+  getFullYear
+    ✓ returns the current year (5 ms)
+  getFooterCopy
+    ✓ returns the correct footer string
+  getLatestNotification
+    ✓ shold return correct string element
+
+
+ RUNS  src/App/App.test.js
+/Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x04-React_inline_styling/task_1/dashboard/node_modules/aphrodite/lib/chunk-d8625444.js:1525
+    styleTag = document.querySelector("style[data-aphrodite]")
+                        ^
+
+TypeError: Cannot read properties of undefined (reading 'querySelector')
+    at injectStyleTag (/Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x04-React_inline_styling/task_1/dashboard/node_modules/aphrodite/lib/chunk-d8625444.js:1525:25)
+    at flushToStyleTag (/Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x04-React_inline_styling/task_1/dashboard/node_modules/aphrodite/lib/chunk-d8625444.js:1704:5)
+    at RawTask.Object.<anonymous>.RawTask.call (/Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x04-React_inline_styling/task_1/dashboard/node_modules/asap/asap.js:38:15)
+    at flush (/Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x04-React_inline_styling/task_1/dashboard/node_modules/asap/raw.js:49:25)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+
+Node.js v21.7.2
+queenbae@Queens-MacBook-Pro dashboard % npm run build
+
+> task_0@1.0.0 build
+> webpack --config config/webpack.config.js
+
+assets by path *.js 1.29 MiB
+  asset vendors.cde074263e890cb6eb07.bundle.js 1.21 MiB [emitted] [immutable] [big] (name: vendors) (id hint: vendors) 1 related asset
+  asset main.339aad9d33eeeb493837.bundle.js 73.9 KiB [emitted] [immutable] (name: main) 1 related asset
+  asset runtime.f80899ed71951551d4ae.bundle.js 8.44 KiB [emitted] [immutable] (name: runtime) 1 related asset
+assets by chunk 28.5 KiB (auxiliary name: main)
+  asset 24bab5d633e36ca8d17edc63164cf934.jpg 23.1 KiB [emitted] [immutable] [from: src/assets/holbertonlogo.jpg] (auxiliary name: main)
+  asset d358bb35dc011695b84ce67f9214c2bf.png 5.46 KiB [emitted] [immutable] [from: src/assets/closeicon.png] (auxiliary name: main)
+asset index.html 559 bytes [emitted]
+Entrypoint main [big] 1.29 MiB (1.49 MiB) = runtime.f80899ed71951551d4ae.bundle.js 8.44 KiB vendors.cde074263e890cb6eb07.bundle.js 1.21 MiB main.339aad9d33eeeb493837.bundle.js 73.9 KiB 5 auxiliary assets
+runtime modules 4.61 KiB 10 modules
+cacheable modules 1.24 MiB
+  modules by path ./node_modules/ 1.2 MiB 28 modules
+  modules by path ./src/ 36.4 KiB
+    modules by path ./src/Notifications/ 16.7 KiB 5 modules
+    modules by path ./src/Footer/ 2.24 KiB 3 modules
+    modules by path ./src/CourseList/*.js 3.72 KiB 3 modules
+    modules by path ./src/*.css 2.43 KiB 2 modules
+    modules by path ./src/BodySection/*.js 1.13 KiB 2 modules
+    modules by path ./src/assets/ 160 bytes 2 modules
+    + 5 modules
+webpack 5.91.0 compiled successfully in 2337 ms
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js BodySection.test.js BodySectionWithMarginBottom.test.js CourseList.test.js CourseListRow.test.js Footer.test.js Header.test.js WithLogging.test.js Login.test.js NotificationItem.test.js Notifications.test.js utils.test.js -- --maxWorkers=1 --detectOpenHandles
+
+> task_0@1.0.0 test
+> jest App.test.js BodySection.test.js BodySectionWithMarginBottom.test.js CourseList.test.js CourseListRow.test.js Footer.test.js Header.test.js WithLogging.test.js Login.test.js NotificationItem.test.js Notifications.test.js utils.test.js --maxWorkers=1 --detectOpenHandles
+
+(node:5961) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  src/CourseList/CourseList.test.js
+  CourseList component
+    ✓ renders CourseList component without crashing (33 ms)
+    ✓ renders the 3 different rows (9 ms)
+    ✓ renders correctly with an empty listCourses array (18 ms)
+    ✓ renders correctly when listCourses is not provided (5 ms)
+    ✓ renders listCourses correctly (14 ms)
+
+  console.error
+    Warning: findDOMNode is deprecated and will be removed in the next major release. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node
+
+      46 |     ];
+      47 |     const wrapper = mount(<Notifications displayDrawer={true} listNotifications={sampleNotifications} />);
+    > 48 |     const htmlContent = wrapper.html();
+         |                                 ^
+      49 |     expect(htmlContent).toContain('Here is the list of notifications');
+      50 |   });
+      51 |
+
+      at call (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at Object.error [as findDOMNode] (node_modules/react-dom/cjs/react-dom.development.js:29666:7)
+      at findDOMNode (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:248:40)
+      at mapper (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:257:12)
+      at ReactEighteenAdapter.nodeToHostNode (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:709:23)
+      at nodeToHostNode (node_modules/enzyme/src/RSTTraversal.js:202:39)
+      at handleHostNodes (node_modules/enzyme/src/RSTTraversal.js:160:12)
+      at getTextFromRSTNode (node_modules/enzyme/src/RSTTraversal.js:197:10)
+      at getHTMLFromHostNodes (node_modules/enzyme/src/RSTTraversal.js:199:14)
+          at Array.map (<anonymous>)
+      at map (node_modules/enzyme/src/RSTTraversal.js:165:31)
+      at getTextFromRSTNode (node_modules/enzyme/src/RSTTraversal.js:197:10)
+      at ReactWrapper.<anonymous> (node_modules/enzyme/src/ReactWrapper.js:641:39)
+      at ReactWrapper.call [as single] (node_modules/enzyme/src/ReactWrapper.js:1170:21)
+      at ReactWrapper.single [as html] (node_modules/enzyme/src/ReactWrapper.js:641:17)
+      at Object.html (src/Notifications/Notifications.test.js:48:33)
+
+ PASS  src/Notifications/Notifications.test.js
+  Notifications component
+    ✓ renders without crashing (10 ms)
+    ✓ renders three list items (6 ms)
+    ✓ renders the text "Here is the list of notifications" (204 ms)
+    ✓ renders without crashing (5 ms)
+    ✓ calls console.log when markAsRead is invoked (5 ms)
+    ✓ does not rerender when props are updated with the same list (15 ms)
+    ✓ rerenders when props are updated with a longer list (4 ms)
+    ✓ does not rerender when props are updated with the same list (4 ms)
+    ✓ rerenders when props are updated with a longer list (4 ms)
+
+ PASS  src/Notifications/NotificationItem.test.js
+  NotificationItem
+    ✓ renders without crashing (5 ms)
+    ✓ renders correct HTML with type and value props (5 ms)
+    ✓ renders correct HTML with html prop (56 ms)
+  NotificationItem component
+    ✓ calls markAsRead with the right ID argument when clicked (3 ms)
+
+ PASS  src/Header/Header.test.js
+  Header component
+    ✓ renders without crashing (6 ms)
+    ✓ renders img and h1 tags (45 ms)
+
+ PASS  src/CourseList/CourseListRow.test.js
+  CourseListRow Component
+    ✓ renders one cell with colspan = 2 when textSecondCell does not exist (7 ms)
+    ✓ renders two cells when textSecondCell is present (3 ms)
+    ✓ renders correctly two td elements within a tr element (7 ms)
+    ✓ applies the correct background color for header rows (20 ms)
+    ✓ applies the correct background color for regular rows (8 ms)
+
+ PASS  src/BodySection/BodySectionWithMarginBottom.test.js
+  <BodySectionWithMarginBottom />
+    ✓ renders correctly with BodySection component and props are passed correctly (19 ms)
+
+ PASS  src/Login/Login.test.js
+  Login component
+    ✓ renders without crashing (4 ms)
+    ✓ renders 2 input and 2 label tags (4 ms)
+
+ PASS  src/HOC/WithLogging.test.js
+  WithLogging
+    ✓ calls console.log with "Component" on mount and unmount with pure HTML (6 ms)
+    ✓ calls console.log with the component name on mount and unmount with Login component (3 ms)
+
+ PASS  src/Footer/Footer.test.js
+  Footer component
+    ✓ renders without crashing (2 ms)
+    ✓ renders the text "© {currentYear} Holberton School main dashboard" (2 ms)
+
+ PASS  src/BodySection/BodySection.test.js
+  <BodySection />
+    ✓ renders correctly with children and h2 element (4 ms)
+
+ PASS  src/utils/utils.test.js
+  getFullYear
+    ✓ returns the current year (6 ms)
+  getFooterCopy
+    ✓ returns the correct footer string (1 ms)
+  getLatestNotification
+    ✓ shold return correct string element (1 ms)
+
+
+ RUNS  src/App/App.test.js
+/Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x04-React_inline_styling/task_1/dashboard/node_modules/aphrodite/lib/chunk-d8625444.js:1525
+    styleTag = document.querySelector("style[data-aphrodite]")
+                        ^
+
+TypeError: Cannot read properties of undefined (reading 'querySelector')
+    at injectStyleTag (/Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x04-React_inline_styling/task_1/dashboard/node_modules/aphrodite/lib/chunk-d8625444.js:1525:25)
+    at flushToStyleTag (/Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x04-React_inline_styling/task_1/dashboard/node_modules/aphrodite/lib/chunk-d8625444.js:1704:5)
+    at RawTask.Object.<anonymous>.RawTask.call (/Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x04-React_inline_styling/task_1/dashboard/node_modules/asap/asap.js:38:15)
+    at flush (/Users/queenbae/Documents/Alx/AlxSoftwareEngineering/Sprint4/react/0x04-React_inline_styling/task_1/dashboard/node_modules/asap/raw.js:49:25)
+    at processTicksAndRejections (node:internal/process/task_queues:77:11)
+
+Node.js v21.7.2
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js BodySection.test.js BodySectionWithMarginBottom.test.js CourseList.test.js CourseListRow.test.js Footer.test.js Header.test.js WithLogging.test.js Login.test.js NotificationItem.test.js Notifications.test.js utils.test.js -- --maxWorkers=1 --detectOpenHandles
+
+> task_0@1.0.0 test
+> jest App.test.js BodySection.test.js BodySectionWithMarginBottom.test.js CourseList.test.js CourseListRow.test.js Footer.test.js Header.test.js WithLogging.test.js Login.test.js NotificationItem.test.js Notifications.test.js utils.test.js --maxWorkers=1 --detectOpenHandles
+
+(node:6057) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  src/CourseList/CourseList.test.js
+  CourseList component
+    ✓ renders CourseList component without crashing (31 ms)
+    ✓ renders the 3 different rows (11 ms)
+    ✓ renders correctly with an empty listCourses array (22 ms)
+    ✓ renders correctly when listCourses is not provided (9 ms)
+    ✓ renders listCourses correctly (9 ms)
+
+  console.error
+    Warning: findDOMNode is deprecated and will be removed in the next major release. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node
+
+      46 |     ];
+      47 |     const wrapper = mount(<Notifications displayDrawer={true} listNotifications={sampleNotifications} />);
+    > 48 |     const htmlContent = wrapper.html();
+         |                                 ^
+      49 |     expect(htmlContent).toContain('Here is the list of notifications');
+      50 |   });
+      51 |
+
+      at call (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at Object.error [as findDOMNode] (node_modules/react-dom/cjs/react-dom.development.js:29666:7)
+      at findDOMNode (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:248:40)
+      at mapper (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:257:12)
+      at ReactEighteenAdapter.nodeToHostNode (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:709:23)
+      at nodeToHostNode (node_modules/enzyme/src/RSTTraversal.js:202:39)
+      at handleHostNodes (node_modules/enzyme/src/RSTTraversal.js:160:12)
+      at getTextFromRSTNode (node_modules/enzyme/src/RSTTraversal.js:197:10)
+      at getHTMLFromHostNodes (node_modules/enzyme/src/RSTTraversal.js:199:14)
+          at Array.map (<anonymous>)
+      at map (node_modules/enzyme/src/RSTTraversal.js:165:31)
+      at getTextFromRSTNode (node_modules/enzyme/src/RSTTraversal.js:197:10)
+      at ReactWrapper.<anonymous> (node_modules/enzyme/src/ReactWrapper.js:641:39)
+      at ReactWrapper.call [as single] (node_modules/enzyme/src/ReactWrapper.js:1170:21)
+      at ReactWrapper.single [as html] (node_modules/enzyme/src/ReactWrapper.js:641:17)
+      at Object.html (src/Notifications/Notifications.test.js:48:33)
+
+ PASS  src/Notifications/Notifications.test.js
+  Notifications component
+    ✓ renders without crashing (9 ms)
+    ✓ renders three list items (5 ms)
+    ✓ renders the text "Here is the list of notifications" (242 ms)
+    ✓ renders without crashing (5 ms)
+    ✓ calls console.log when markAsRead is invoked (6 ms)
+    ✓ does not rerender when props are updated with the same list (10 ms)
+    ✓ rerenders when props are updated with a longer list (5 ms)
+    ✓ does not rerender when props are updated with the same list (6 ms)
+    ✓ rerenders when props are updated with a longer list (4 ms)
+
+ PASS  src/Notifications/NotificationItem.test.js
+  NotificationItem
+    ✓ renders without crashing (6 ms)
+    ✓ renders correct HTML with type and value props (5 ms)
+    ✓ renders correct HTML with html prop (59 ms)
+  NotificationItem component
+    ✓ calls markAsRead with the right ID argument when clicked (3 ms)
+
+ PASS  src/Header/Header.test.js
+  Header component
+    ✓ renders without crashing (7 ms)
+    ✓ renders img and h1 tags (43 ms)
+
+ PASS  src/CourseList/CourseListRow.test.js
+  CourseListRow Component
+    ✓ renders one cell with colspan = 2 when textSecondCell does not exist (8 ms)
+    ✓ renders two cells when textSecondCell is present (9 ms)
+    ✓ renders correctly two td elements within a tr element (4 ms)
+    ✓ applies the correct background color for header rows (20 ms)
+    ✓ applies the correct background color for regular rows (8 ms)
+
+ PASS  src/BodySection/BodySectionWithMarginBottom.test.js
+  <BodySectionWithMarginBottom />
+    ✓ renders correctly with BodySection component and props are passed correctly (20 ms)
+
+ PASS  src/Login/Login.test.js
+  Login component
+    ✓ renders without crashing (3 ms)
+    ✓ renders 2 input and 2 label tags (4 ms)
+
+ PASS  src/HOC/WithLogging.test.js
+  WithLogging
+    ✓ calls console.log with "Component" on mount and unmount with pure HTML (6 ms)
+    ✓ calls console.log with the component name on mount and unmount with Login component (8 ms)
+
+ PASS  src/Footer/Footer.test.js
+  Footer component
+    ✓ renders without crashing (3 ms)
+    ✓ renders the text "© {currentYear} Holberton School main dashboard" (2 ms)
+
+ PASS  src/BodySection/BodySection.test.js
+  <BodySection />
+    ✓ renders correctly with children and h2 element (4 ms)
+
+ PASS  src/utils/utils.test.js
+  getFullYear
+    ✓ returns the current year (2 ms)
+  getFooterCopy
+    ✓ returns the correct footer string (1 ms)
+  getLatestNotification
+    ✓ shold return correct string element (1 ms)
+
+ PASS  src/App/App.test.js
+  App component
+    ✓ calls logOut function and displays alert when pressing ctrl+h (4 ms)
+    ✓ renders without crashing (2 ms)
+    ✓ contains the Notifications component (12 ms)
+    ✓ contains the Header component (4 ms)
+    ✓ contains the Login component (6 ms)
+    ✓ contains the Footer component (4 ms)
+    ✓ renders Login component when isLoggedIn is false (3 ms)
+    ✓ does not render CourseList component when isLoggedIn is false (2 ms)
+  when isLoggedIn is true
+    ✓ does not render Login component when isLoggedIn is true (3 ms)
+    ✓ renders CourseList component (2 ms)
+
+Test Suites: 12 passed, 12 total
+Tests:       46 passed, 46 total
+Snapshots:   0 total
+Time:        5.655 s, estimated 23 s
+Ran all test suites matching /App.test.js|BodySection.test.js|BodySectionWithMarginBottom.test.js|CourseList.test.js|CourseListRow.test.js|Footer.test.js|Header.test.js|WithLogging.test.js|Login.test.js|NotificationItem.test.js|Notifications.test.js|utils.test.js/i.
+queenbae@Queens-MacBook-Pro dashboard % 
+
+
+
+ npm run test App.test.js BodySection.test.js BodySectionWithMarginBottom.test.js CourseList.test.js CourseListRow.test.js Footer.test.js Header.test.js WithLogging.test.js Login.test.js NotificationItem.test.js Notifications.test.js utils.test.js -- --maxWorkers=1 --detectOpenHandles
+
+> task_0@1.0.0 test
+> jest App.test.js BodySection.test.js BodySectionWithMarginBottom.test.js CourseList.test.js CourseListRow.test.js Footer.test.js Header.test.js WithLogging.test.js Login.test.js NotificationItem.test.js Notifications.test.js utils.test.js --maxWorkers=1 --detectOpenHandles
+
+  console.error
+    Warning: findDOMNode is deprecated and will be removed in the next major release. Instead, add a ref directly to the element you want to reference. Learn more about using refs safely here: https://reactjs.org/link/strict-mode-find-node
+
+      68 |     const notificationsComponent = wrapper.find('Notifications');
+      69 |     expect(notificationsComponent.exists()).toBe(true);
+    > 70 |     const htmlContent = notificationsComponent.html(); // Use the html() method instead of getDOMNode().innerHTML
+         |                                                ^
+      71 |     expect(htmlContent).toContain('Here is the list of notifications');
+      72 |   });
+      73 |
+
+      at call (node_modules/react-dom/cjs/react-dom.development.js:86:30)
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:60:7)
+      at Object.error [as findDOMNode] (node_modules/react-dom/cjs/react-dom.development.js:29666:7)
+      at findDOMNode (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:248:40)
+      at mapper (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:257:12)
+      at ReactEighteenAdapter.nodeToHostNode (node_modules/@cfaester/enzyme-adapter-react-18/dist/ReactEighteenAdapter.js:709:23)
+      at nodeToHostNode (node_modules/enzyme/src/RSTTraversal.js:202:39)
+      at handleHostNodes (node_modules/enzyme/src/RSTTraversal.js:160:12)
+      at getTextFromRSTNode (node_modules/enzyme/src/RSTTraversal.js:197:10)
+      at getHTMLFromHostNodes (node_modules/enzyme/src/RSTTraversal.js:199:14)
+          at Array.map (<anonymous>)
+      at map (node_modules/enzyme/src/RSTTraversal.js:165:31)
+      at getTextFromRSTNode (node_modules/enzyme/src/RSTTraversal.js:197:10)
+      at ReactWrapper.<anonymous> (node_modules/enzyme/src/ReactWrapper.js:641:39)
+      at ReactWrapper.call [as single] (node_modules/enzyme/src/ReactWrapper.js:1170:21)
+      at ReactWrapper.single [as html] (node_modules/enzyme/src/ReactWrapper.js:641:17)
+      at Object.html (src/Notifications/Notifications.test.js:70:48)
+
+(node:6599) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  src/Notifications/Notifications.test.js
+  Notifications component
+    ✓ renders without crashing (13 ms)
+    ✓ renders three list items (6 ms)
+    ✓ renders the text "Here is the list of notifications" (259 ms)
+    ✓ renders without crashing (9 ms)
+    ✓ calls console.log when markAsRead is invoked (6 ms)
+    ✓ does not rerender when props are updated with the same list (11 ms)
+    ✓ rerenders when props are updated with a longer list (7 ms)
+    ✓ does not rerender when props are updated with the same list (5 ms)
+    ✓ rerenders when props are updated with a longer list (13 ms)
+
+ PASS  src/App/App.test.js
+  App component
+    ✓ calls logOut function and displays alert when pressing ctrl+h (5 ms)
+    ✓ renders without crashing (2 ms)
+    ✓ contains the Notifications component (21 ms)
+    ✓ contains the Header component (6 ms)
+    ✓ contains the Login component (5 ms)
+    ✓ contains the Footer component (5 ms)
+    ✓ renders Login component when isLoggedIn is false (4 ms)
+    ✓ does not render CourseList component when isLoggedIn is false (3 ms)
+  when isLoggedIn is true
+    ✓ does not render Login component when isLoggedIn is true (3 ms)
+    ✓ renders CourseList component (7 ms)
+
+ PASS  src/Notifications/NotificationItem.test.js
+  NotificationItem
+    ✓ renders without crashing (5 ms)
+    ✓ renders correct HTML with type and value props (22 ms)
+    ✓ renders correct HTML with html prop (59 ms)
+  NotificationItem component
+    ✓ calls markAsRead with the right ID argument when clicked (3 ms)
+
+ PASS  src/CourseList/CourseListRow.test.js
+  CourseListRow Component
+    ✓ renders one cell with colspan = 2 when textSecondCell does not exist (9 ms)
+    ✓ renders two cells when textSecondCell is present (6 ms)
+    ✓ renders correctly two td elements within a tr element (5 ms)
+    ✓ applies the correct background color for header rows (29 ms)
+    ✓ applies the correct background color for regular rows (10 ms)
+
+ PASS  src/Header/Header.test.js
+  Header component
+    ✓ renders without crashing (7 ms)
+    ✓ renders img and h1 tags (32 ms)
+
+ PASS  src/CourseList/CourseList.test.js
+  CourseList component
+    ✓ renders CourseList component without crashing (8 ms)
+    ✓ renders the 3 different rows (5 ms)
+    ✓ renders correctly with an empty listCourses array (6 ms)
+    ✓ renders correctly when listCourses is not provided (8 ms)
+    ✓ renders listCourses correctly (7 ms)
+
+ PASS  src/Footer/Footer.test.js
+  Footer component
+    ✓ renders without crashing (3 ms)
+    ✓ renders the text "© {currentYear} Holberton School main dashboard" (2 ms)
+
+ PASS  src/HOC/WithLogging.test.js
+  WithLogging
+    ✓ calls console.log with "Component" on mount and unmount with pure HTML (8 ms)
+    ✓ calls console.log with the component name on mount and unmount with Login component (7 ms)
+
+ PASS  src/Login/Login.test.js
+  Login component
+    ✓ renders without crashing (3 ms)
+    ✓ renders 2 input and 2 label tags (3 ms)
+
+ PASS  src/BodySection/BodySectionWithMarginBottom.test.js
+  <BodySectionWithMarginBottom />
+    ✓ renders correctly with BodySection component and props are passed correctly (15 ms)
+
+ PASS  src/utils/utils.test.js
+  getFullYear
+    ✓ returns the current year (2 ms)
+  getFooterCopy
+    ✓ returns the correct footer string (2 ms)
+  getLatestNotification
+    ✓ shold return correct string element (1 ms)
+
+ PASS  src/BodySection/BodySection.test.js
+  <BodySection />
+    ✓ renders correctly with children and h2 element (4 ms)
+
+Test Suites: 12 passed, 12 total
+Tests:       46 passed, 46 total
+Snapshots:   0 total
+Time:        6.232 s
+Ran all test suites matching /App.test.js|BodySection.test.js|BodySectionWithMarginBottom.test.js|CourseList.test.js|CourseListRow.test.js|Footer.test.js|Header.test.js|WithLogging.test.js|Login.test.js|NotificationItem.test.js|Notifications.test.js|utils.test.js/i.
+
+
+queenbae@Queens-MacBook-Pro dashboard % npm run test App.test.js BodySection.test.js BodySectionWithMarginBottom.test.js CourseList.test.js CourseListRow.test.js Footer.test.js Header.test.js WithLogging.test.js Login.test.js NotificationItem.test.js Notifications.test.js utils.test.js
+
+> task_0@1.0.0 test
+> jest App.test.js BodySection.test.js BodySectionWithMarginBottom.test.js CourseList.test.js CourseListRow.test.js Footer.test.js Header.test.js WithLogging.test.js Login.test.js NotificationItem.test.js Notifications.test.js utils.test.js
+
+(node:6924) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  src/App/App.test.js
+  App component
+    ✓ calls logOut function and displays alert when pressing ctrl+h (17 ms)
+    ✓ renders without crashing (2 ms)
+    ✓ contains the Notifications component (38 ms)
+    ✓ contains the Header component (12 ms)
+    ✓ contains the Login component (4 ms)
+    ✓ contains the Footer component (9 ms)
+    ✓ renders Login component when isLoggedIn is false (5 ms)
+    ✓ does not render CourseList component when isLoggedIn is false (1 ms)
+  when isLoggedIn is true
+    ✓ does not render Login component when isLoggedIn is true (2 ms)
+    ✓ renders CourseList component (5 ms)
+
+(node:6926) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  src/CourseList/CourseList.test.js
+  CourseList component
+    ✓ renders CourseList component without crashing (55 ms)
+    ✓ renders the 3 different rows (11 ms)
+    ✓ renders correctly with an empty listCourses array (34 ms)
+    ✓ renders correctly when listCourses is not provided (28 ms)
+    ✓ renders listCourses correctly (10 ms)
+
+(node:6925) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  src/CourseList/CourseListRow.test.js
+  CourseListRow Component
+    ✓ renders one cell with colspan = 2 when textSecondCell does not exist (61 ms)
+    ✓ renders two cells when textSecondCell is present (13 ms)
+    ✓ renders correctly two td elements within a tr element (4 ms)
+    ✓ applies the correct background color for header rows (66 ms)
+    ✓ applies the correct background color for regular rows (16 ms)
+
+(node:6923) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  src/Notifications/NotificationItem.test.js
+  NotificationItem
+    ✓ renders without crashing (43 ms)
+    ✓ renders correct HTML with type and value props (30 ms)
+    ✓ renders correct HTML with html prop (114 ms)
+  NotificationItem component
+    ✓ calls markAsRead with the right ID argument when clicked (5 ms)
+
+(node:6922) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+ PASS  src/Notifications/Notifications.test.js
+  Notifications component
+    ✓ renders without crashing (44 ms)
+    ✓ renders three list items (6 ms)
+    ✓ renders the text "Here is the list of notifications" (86 ms)
+    ✓ renders without crashing (14 ms)
+    ✓ calls console.log when markAsRead is invoked (2 ms)
+    ✓ does not rerender when props are updated with the same list (14 ms)
+    ✓ rerenders when props are updated with a longer list (2 ms)
+    ✓ does not rerender when props are updated with the same list (5 ms)
+    ✓ rerenders when props are updated with a longer list (3 ms)
+
+ PASS  src/Login/Login.test.js
+  Login component
+    ✓ renders without crashing (8 ms)
+    ✓ renders 2 input and 2 label tags (12 ms)
+
+ PASS  src/BodySection/BodySection.test.js
+  <BodySection />
+    ✓ renders correctly with children and h2 element (4 ms)
+
+ PASS  src/HOC/WithLogging.test.js
+  WithLogging
+    ✓ calls console.log with "Component" on mount and unmount with pure HTML (9 ms)
+    ✓ calls console.log with the component name on mount and unmount with Login component (2 ms)
+
+ PASS  src/BodySection/BodySectionWithMarginBottom.test.js
+  <BodySectionWithMarginBottom />
+    ✓ renders correctly with BodySection component and props are passed correctly (52 ms)
+
+ PASS  src/Header/Header.test.js
+  Header component
+    ✓ renders without crashing (23 ms)
+    ✓ renders img and h1 tags (57 ms)
+
+ PASS  src/utils/utils.test.js
+  getFullYear
+    ✓ returns the current year (1 ms)
+  getFooterCopy
+    ✓ returns the correct footer string
+  getLatestNotification
+    ✓ shold return correct string element (1 ms)
+
+ PASS  src/Footer/Footer.test.js
+  Footer component
+    ✓ renders without crashing (1 ms)
+    ✓ renders the text "© {currentYear} Holberton School main dashboard" (2 ms)
+
+Test Suites: 12 passed, 12 total
+Tests:       46 passed, 46 total
+Snapshots:   0 total
+Time:        6.137 s
+Ran all test suites matching /App.test.js|BodySection.test.js|BodySectionWithMarginBottom.test.js|CourseList.test.js|CourseListRow.test.js|Footer.test.js|Header.test.js|WithLogging.test.js|Login.test.js|NotificationItem.test.js|Notifications.test.js|utils.test.js/i.

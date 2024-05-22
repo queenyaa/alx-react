@@ -1,9 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Login from './Login';
-// import { StyleSheetTestUtils } from 'aphrodite';
+import { StyleSheetTestUtils } from 'aphrodite';
 
 describe('Login component', () => {
+    beforeEach(() => {
+        StyleSheetTestUtils.suppressStyleInjection();
+    });
+    afterEach(() => {
+        StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+    });
 
     it('renders without crashing', () => {
         shallow(<Login />);
