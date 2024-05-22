@@ -34,6 +34,16 @@ module.exports = {
       },
     },
   },
+  presents: [
+    [
+      "@babel/preset-env",
+      {
+        targets: {
+	  node: "current"
+	}
+      }
+    ]
+  ],
   devServer: {
     hot: true,
     port: 8564,
