@@ -1,16 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import CourseListRow from './CourseListRow';
-import { StyleSheetTestUtils } from 'aphrodite';
+// import { StyleSheetTestUtils } from 'aphrodite';
 
 describe('CourseListRow Component', () => {
-
-    beforeEach(() => {
-        StyleSheetTestUtils.suppressStyleInjection();
-    });
-    afterEach(() => {
-        StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-    });
 
     it('renders one cell with colspan = 2 when textSecondCell does not exist', () => {
         const { getByText } = render(

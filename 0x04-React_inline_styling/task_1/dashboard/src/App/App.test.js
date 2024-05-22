@@ -13,13 +13,13 @@ describe('App component', () => {
     let originalAlert;
 
     beforeAll(() => {
-      StyleSheetTestUtils.suppressStyleInjection();
+      // StyleSheetTestUtils.suppressStyleInjection();
       originalAlert = window.alert;
       window.alert = jest.fn();
     });
   
     afterAll(() => {
-      StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+      // StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
       window.alert = originalAlert;
     });
 

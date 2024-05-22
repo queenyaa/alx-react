@@ -3,16 +3,10 @@ import { shallow } from 'enzyme';
 import { mount } from 'enzyme';
 import { render, screen } from '@testing-library/react';
 import Notifications from './Notifications';
-import { StyleSheetTestUtils } from 'aphrodite';
+// import { StyleSheetTestUtils } from 'aphrodite';
 
 
 describe('Notifications component', () => {
-  beforeEach(() => {
-    StyleSheetTestUtils.suppressStyleInjection();
-  });
-  afterEach(() => {
-    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-  });
 
   test('renders without crashing', () => {
     const wrapper = shallow(<Notifications />);

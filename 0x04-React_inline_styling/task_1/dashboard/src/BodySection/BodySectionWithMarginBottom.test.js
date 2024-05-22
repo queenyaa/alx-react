@@ -2,15 +2,9 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import BodySectionWithMarginBottom from './BodySectionWithMarginBottom';
 import BodySection from './BodySection';
-import { StyleSheetTestUtils } from 'aphrodite';
+// import { StyleSheetTestUtils } from 'aphrodite';
 
 describe('<BodySectionWithMarginBottom />', () => {
-  beforeEach(() => {
-    StyleSheetTestUtils.suppressStyleInjection();
-  });
-  afterEach(() => {
-    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
-  });
 
   it('renders correctly with BodySection component and props are passed correctly', () => {
     const title = "test title";
