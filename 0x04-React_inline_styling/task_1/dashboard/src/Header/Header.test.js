@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import Header from './Header';
+import { StyleSheetTestUtils } from 'aphrodite';
 
 // Mock the image import
 jest.mock('./../assets/holbertonlogo.jpg', () => ({
@@ -9,6 +10,13 @@ jest.mock('./../assets/holbertonlogo.jpg', () => ({
   }));
 
 function toBeInTheDocument(element) {
+  beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+  afterEach(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
+
     if (element === null || element === undefined) {
       throw new Error(`Received ${element}`);
     }
@@ -33,7 +41,9 @@ describe('Header component', () => {
         const headingElement = getByText('School dashboard');
 
         // Assert that both img and h1 tags are rendered
-        toBeInTheDocument(logoImg);
-        toBeInTheDocument(headingElement);
+        // toBeInTheDocument(logoImg);
+        // toBeInTheDocument(headingElement);
+        expect(logoImg).toBeInTheDocument();
+        expect(headingElement).toBeInTheDocument();
     });
 });

@@ -2,8 +2,16 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import NotificationItem from './NotificationItem';
 import { shallow } from 'enzyme';
+import { StyleSheetTestUtils } from 'aphrodite';
 
 describe('NotificationItem', () => {
+  beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+  afterEach(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
+
   it('renders without crashing', () => {
     render(<NotificationItem />);
   });

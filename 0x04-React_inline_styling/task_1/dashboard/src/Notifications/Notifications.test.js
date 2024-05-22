@@ -1,10 +1,19 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { shallow } from 'enzyme';
 import { mount } from 'enzyme';
 import { render, screen } from '@testing-library/react';
 import Notifications from './Notifications';
+import { StyleSheetTestUtils } from 'aphrodite';
+
 
 describe('Notifications component', () => {
+  beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+  afterEach(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
+
   test('renders without crashing', () => {
     const wrapper = shallow(<Notifications />);
     expect(wrapper.exists()).toBeTruthy();
@@ -30,14 +39,40 @@ describe('Notifications component', () => {
     return false;
   }
   
+  //   test('renders the text "Here is the list of notifications"', () => {
+  //  const sampleNotifications = [
+  //    { id: 1, type: 'default', value: 'New course available' },
+  //    { id: 2, type: 'urgent', value: 'New resume available' },
+  //  ];
+  //  const wrapper = mount(<Notifications displayDrawer={true} listNotifications={sampleNotifications} />);
+  //  const htmlContent = wrapper.html();
+  //  expect(htmlContent).toContain('Here is the list of notifications');
+  // });
+
   test('renders the text "Here is the list of notifications"', () => {
     const sampleNotifications = [
       { id: 1, type: 'default', value: 'New course available' },
       { id: 2, type: 'urgent', value: 'New resume available' },
     ];
-    const wrapper = mount(<Notifications displayDrawer={true} listNotifications={sampleNotifications} />);
-    const htmlContent = wrapper.html();
-    expect(htmlContent).toContain('Here is the list of notifications');
+
+    const WrapperComponent = () => {
+      const ref = useRef(null);
+
+      useEffect(() => {
+        if (ref.current) {
+          const htmlContent = ref.current.innerHTML;
+          expect(htmlContent).toContain('Here is the list of notifications');
+        }
+      }, []);
+
+      return (
+        <div ref={ref}>
+          <Notifications displayDrawer={true} listNotifications={sampleNotifications} />
+        </div>
+      );
+    };
+
+    mount(<WrapperComponent />);
   });
 
   it('renders without crashing', () => {

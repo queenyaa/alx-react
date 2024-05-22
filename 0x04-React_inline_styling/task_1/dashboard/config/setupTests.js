@@ -21,7 +21,16 @@ import { StyleSheetTestUtils } from 'aphrodite';
 //    expect(typeof encoder.encode).toBe('function');
 //  });
 
-StyleSheetTestUtils.suppressStyleInjection();
+// StyleSheetTestUtils.suppressStyleInjection();
+
+beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+  
+afterEach(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
+
 global.URLSearchParams = require('url').URLSearchParams;
 Enzyme.configure({ adapter: new Adapter() });
 global.render = render;

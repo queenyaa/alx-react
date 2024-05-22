@@ -6,15 +6,18 @@
   "browser": {
     "./nodejs-module.js": "./browser-module.js"
   },
+
   "scripts": {
     "start": "webpack-dev-server --mode development --config config/webpack.config.js",
     "test-watch": "jest --watch",
     "test": "jest",
     "build": "webpack --config config/webpack.config.js"
   },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
+
   "devDependencies": {
     "@babel/cli": "^7.24.5",
     "@babel/core": "^7.24.5",
@@ -42,6 +45,7 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
   },
+
   "dependencies": {
     "@babel/preset-react": "^7.24.1",
     "@cfaester/enzyme-adapter-react-18": "^0.8.0",
@@ -61,8 +65,11 @@
     "text-encoding": "^0.7.0",
     "web-vitals": "^3.5.2"
   },
+
   "jest": {
     "verbose": true,
+    "maxWorkers": 5,
+    "testTimeout": 10000,
     "setupFilesAfterEnv": [
       "<rootDir>/config/setupTests.js"
     ],

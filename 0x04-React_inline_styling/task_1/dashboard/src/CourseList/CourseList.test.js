@@ -2,8 +2,16 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import CourseList from './CourseList';
+import { StyleSheetTestUtils } from 'aphrodite';
 
 describe('CourseList component', () => {
+  beforeEach(() => {
+    StyleSheetTestUtils.suppressStyleInjection();
+  });
+  afterEach(() => {
+    StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+  });
+  
   it('renders CourseList component without crashing', () => {
     render(<CourseList listCourses={[]} />);
   });
