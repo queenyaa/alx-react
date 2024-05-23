@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import './App.css';
 import React, { Component, useState } from 'react';
-import Notifications from '../Notifications/Notifications1';
+import Notifications from '../Notifications/Notifications';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Login from '../Login/Login';
