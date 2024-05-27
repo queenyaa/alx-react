@@ -105,3 +105,87 @@ In summary, Task 1 is crucial for creating a robust and user-friendly login expe
 ### Task 2 : Context
 ---
 
+### Importance of Task 2
+
+Task 2 involves several key updates and improvements to the `App` component and its associated tests. The importance of this task can be outlined in the following points:
+
+#### 1. **Improved State Management**
+By refactoring the tests to rely on state instead of props, we align the testing strategy more closely with the actual implementation of the component. This makes the tests more accurate and reflective of the component's behavior, ensuring that the component’s state management logic is correctly validated.
+
+#### 2. **Enhanced Component Testing**
+- **Logout Functionality**: Refactoring the test that checks if the `logOut` function is called to verify state updates instead ensures that the logout process is functioning as expected. This includes not only calling the function but also ensuring that the component’s state is updated accordingly, improving test coverage and reliability.
+- **Login Functionality**: Creating a test to verify that the `logIn` function updates the state correctly ensures that the login logic is properly implemented and that the component transitions to the correct state upon logging in. This is critical for user authentication and access control within the application.
+- **Logout State Verification**: Creating a test to verify that the `logOut` function updates the state correctly ensures that the user is logged out properly and that the application reflects this change in its state. This is crucial for maintaining application security and user session management.
+
+#### 3. **Context Integration**
+Refactoring the `Header` component to use context instead of props and ensuring that it properly consumes the context data:
+- **Consistency**: This promotes consistency in how context is used across different components, making the codebase more maintainable and easier to understand.
+- **Context-Driven UI**: Ensures that the UI components react appropriately to changes in context, providing a seamless user experience.
+
+#### 4. **Improved Maintainability and Scalability**
+- **Class Component Conversion**: Converting the `Header` component to a class-based component to accommodate context usage aligns it with older React patterns that are still valid and useful in many scenarios. This can be particularly important for components that require more complex logic or lifecycle methods.
+- **Avoiding Enzyme Limitations**: By avoiding Enzyme’s limitations with the Static Context API and instead wrapping components with the `Context.Provider`, we ensure compatibility and avoid potential issues with testing tools. This makes the tests more robust and less prone to breaking due to external library constraints.
+
+#### 5. **Best Practices in React Development**
+- **Prop Types and Default Props**: Ensuring that `propTypes` and `defaultProps` are set for any new props helps in documenting the expected types and providing default values, which enhances code quality and prevents bugs.
+- **Unused State and Props Cleanup**: Cleaning up unused state and props after refactoring helps in maintaining a clean and efficient codebase, reducing memory usage and potential confusion for future developers working on the code.
+
+#### Conclusion
+Task 2 significantly improves the reliability, maintainability, and scalability of the `App` component and its associated tests. By focusing on state management, context integration, and thorough testing, we ensure that the application is robust and prepared for future development and scaling. This task lays a strong foundation for a well-architected React application that adheres to best practices and modern development standards.
+
+---
+
+### Task 3 : Context consumer & advanced state
+---
+
+### Importance of Task 3
+
+Task 3 involves several key changes to the application's structure and testing. These changes are essential for improving the maintainability, scalability, and performance of the application. Here's a detailed breakdown of the importance of each part of Task 3:
+
+#### Part 1: Context Consumer in Footer Component
+
+**Context Consumer: Modify the Footer component to subscribe to context changes.**
+
+1. **React Context API**: By subscribing to context changes, the Footer component can dynamically display information based on the application's state (e.g., whether a user is logged in or not). This avoids the need to pass props down multiple levels of the component tree.
+   
+2. **Dynamic Content**: Displaying a "Contact us" link when the user is logged in enhances the user experience by providing relevant information based on the user's state.
+
+3. **Code Maintainability**: Using context simplifies state management, making the code easier to understand and maintain.
+
+#### Part 2: Refactoring the Footer Test Suite
+
+**Refactor tests and add new tests for the Footer component.**
+
+1. **Test Coverage**: Ensuring that the tests cover both logged-in and logged-out states helps catch bugs related to context changes.
+
+2. **Reliability**: Writing tests that verify the presence or absence of specific elements based on the context makes the component more reliable and ensures it behaves as expected in different scenarios.
+
+3. **Code Quality**: Comprehensive tests improve code quality by ensuring changes don't break existing functionality.
+
+#### Part 3: Advanced State in App Component
+
+**Manage notifications state and implement `markNotificationAsRead` function.**
+
+1. **State Management**: Keeping the list of notifications in the state allows for dynamic updates and better control over the notification data.
+
+2. **Interactivity**: The `markNotificationAsRead` function provides users with an interactive way to manage their notifications, improving user engagement.
+
+3. **Scalability**: Managing state within the component makes the application more scalable, as state changes trigger re-renders only for the affected components.
+
+#### Part 4: Refactoring Notifications Component
+
+**Use `markNotificationAsRead` and optimize performance with PureComponent.**
+
+1. **Performance Optimization**: Extending `React.PureComponent` instead of using `shouldComponentUpdate` optimizes the performance by reducing unnecessary re-renders, as `PureComponent` performs a shallow comparison of props and state.
+
+2. **Code Simplification**: Removing `shouldComponentUpdate` and relying on `PureComponent` simplifies the component's code, making it easier to read and maintain.
+
+3. **Consistency**: Using a centralized function (`markNotificationAsRead`) across components ensures consistent behavior and reduces code duplication.
+
+### Summary
+
+Task 3 is crucial for improving the overall architecture and quality of the application. By leveraging the React Context API, managing state effectively, writing comprehensive tests, and optimizing performance with `PureComponent`, the application becomes more maintainable, scalable, and user-friendly. These changes collectively contribute to a robust codebase that is easier to understand, extend, and debug.
+
+---
+
+### Task 4 : 
