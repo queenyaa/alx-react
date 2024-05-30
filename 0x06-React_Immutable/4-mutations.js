@@ -11,7 +11,7 @@ export const map = Map({
 });
 
 // Use map to derive map2 with specified modifications
-export const map2 = map.withMutations(m => {
+export const map2 = map.withMutations((m) => {
   m.set(2, 'Benjamin');
   m.set(4, 'Oliver');
 });
