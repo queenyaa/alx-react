@@ -226,7 +226,6 @@ describe('mapStateToProps', () => {
           email: 'test@example.com',
           isLoggedIn: true
       },
-      // Add other slices of state as needed
     };
 
     // Execute mapStateToProps with your mocked state
